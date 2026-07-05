@@ -136,7 +136,7 @@ export default function Home() {
               />
               <div className="space-y-4">
                 {hotels.slice(0, 3).map((stay) => (
-                  <div key={stay.id} className="glass-panel wave-card soft-hover flex gap-4 rounded-[24px] border border-[var(--border-soft)] p-4">
+                  <div key={stay.id} className="premium-card wave-card soft-hover flex gap-4 p-4">
                     <div className="relative h-24 w-24 overflow-hidden rounded-[20px]">
                       <Image src={stay.image} alt={stay.name} fill className="object-cover" sizes="96px" />
                     </div>
@@ -171,7 +171,7 @@ export default function Home() {
                 />
                 <div className="grid gap-4 md:grid-cols-2">
                   {guides.filter((guide) => guide.status === "published").slice(0, 2).map((guide) => (
-                    <div key={guide.id} className="glass-panel wave-card soft-hover rounded-[24px] p-5">
+                    <div key={guide.id} className="premium-card wave-card soft-hover p-5">
                       <div className="flex items-center gap-3">
                         <div className="relative h-14 w-14 overflow-hidden rounded-full">
                           <Image src={guide.image} alt={guide.name} fill className="object-cover" sizes="56px" />

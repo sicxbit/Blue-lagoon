@@ -155,7 +155,7 @@ export default function TourPackageDetail({ tour }: TourPackageDetailProps) {
                 />
                 <div className="grid gap-4">
                   {relatedHotels.map((stay) => (
-                    <div key={stay.id} className="glass-panel wave-card soft-hover grid gap-4 rounded-[24px] border border-[var(--border-soft)] p-4 md:grid-cols-[140px_1fr]">
+                    <div key={stay.id} className="premium-card wave-card soft-hover grid gap-4 p-4 md:grid-cols-[140px_1fr]">
                       <div className="relative h-32 overflow-hidden rounded-[20px]">
                         <Image src={stay.image} alt={stay.name} fill className="object-cover" sizes="140px" />
                       </div>
@@ -192,7 +192,7 @@ export default function TourPackageDetail({ tour }: TourPackageDetailProps) {
                 />
                 <div className="grid gap-4 md:grid-cols-2">
                   {relatedGuides.map((guide) => (
-                    <div key={guide.id} className="glass-panel wave-card soft-hover rounded-[24px] border border-[var(--border-soft)] p-5">
+                    <div key={guide.id} className="premium-card wave-card soft-hover p-5">
                       <div className="flex items-center gap-4">
                         <div className="relative h-16 w-16 overflow-hidden rounded-full">
                           <Image src={guide.image} alt={guide.name} fill className="object-cover" sizes="64px" />

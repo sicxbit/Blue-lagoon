@@ -219,6 +219,56 @@ textarea {
   backdrop-filter: blur(22px);
 }
 
+.premium-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.52);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, rgba(239, 249, 251, 0.58) 100%);
+  box-shadow:
+    0 22px 48px rgba(3, 59, 74, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(22px);
+}
+
+.premium-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at top right, rgba(34, 199, 201, 0.12), transparent 28%),
+    radial-gradient(circle at bottom left, rgba(189, 239, 242, 0.12), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.12) 100%);
+  pointer-events: none;
+}
+
+.premium-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.premium-card-surface {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(239, 249, 251, 0.18) 22%, rgba(234, 248, 250, 0.34) 100%);
+}
+
+.premium-card-surface::before {
+  content: "";
+  position: absolute;
+  inset: -52px 0 auto;
+  height: 84px;
+  background: linear-gradient(180deg, rgba(234, 248, 250, 0) 0%, rgba(234, 248, 250, 0.48) 70%, rgba(234, 248, 250, 0.72) 100%);
+  pointer-events: none;
+}
+
 .brand-logo {
   background: linear-gradient(90deg, var(--ocean-deep) 0%, var(--ocean) 56%, var(--ocean-light) 100%);
   -webkit-background-clip: text;
@@ -283,6 +333,15 @@ textarea {
   transform: translateY(0);
   opacity: 1;
   background-position: 100% 50%;
+}
+
+.premium-card.wave-card::before {
+  inset: auto -8% -30% -8%;
+  height: 62%;
+  background:
+    radial-gradient(circle at 16% 42%, rgba(189, 239, 242, 0.24) 0%, transparent 18%),
+    radial-gradient(circle at 82% 34%, rgba(34, 199, 201, 0.18) 0%, transparent 22%),
+    linear-gradient(90deg, transparent 0%, rgba(8, 126, 139, 0.08) 20%, rgba(34, 199, 201, 0.12) 50%, rgba(189, 239, 242, 0.12) 72%, transparent 100%);
 }
 
 .wave-link-calm::before {
@@ -392,7 +451,7 @@ textarea {
 
 .ocean-shimmer {
   box-shadow:
-    0 16px 36px rgba(3, 59, 74, 0.14),
+    0 18px 40px rgba(3, 59, 74, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.38);
 }
 

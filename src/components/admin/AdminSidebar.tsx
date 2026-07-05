@@ -15,6 +15,13 @@ const icons = {
 
 export function AdminSidebar() {
   const pathname = usePathname();
+  const isActive = (href: string) => {
+    if (href === "/admin") {
+      return pathname === "/admin";
+    }
+
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
 
   return (
     <aside className="glass-panel-dark page-enter rounded-[32px] p-6 text-white shadow-[0_24px_60px_rgba(6,59,76,0.2)]">
@@ -28,7 +35,7 @@ export function AdminSidebar() {
 
       <nav className="mt-6 space-y-2">
         {adminNavigation.map((item) => {
-          const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
+          const active = isActive(item.href);
           const Icon = icons[item.href as keyof typeof icons] ?? LayoutDashboard;
 
           return (
@@ -37,10 +44,10 @@ export function AdminSidebar() {
               href={item.href}
               aria-current={active ? "page" : undefined}
               className={cn(
-                "wave-link wave-link-calm transition-smooth flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium",
+                "soft-hover transition-smooth flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium",
                 active
                   ? "bg-[rgba(244,227,193,0.92)] text-[var(--ocean-deep)] shadow-[0_12px_24px_rgba(6,59,76,0.12)]"
-                  : "text-white/88 hover:bg-white/14 hover:text-white"
+                  : "text-white/88 hover:bg-[rgba(255,255,255,0.12)] hover:text-white"
               )}
             >
               <Icon className={cn("h-4 w-4", active ? "text-[var(--ocean-deep)]" : "text-white")} />
