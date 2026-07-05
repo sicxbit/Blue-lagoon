@@ -1,0 +1,94 @@
+import Image from "next/image";
+
+export default function Reviews() {
+  const reviews = [
+    {
+      image: "/assets/imgs/banner/reviewer.png",
+      name: "Lorem Ipsum",
+      rating: "/assets/imgs/banner/rating.png",
+      text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    },
+    {
+      image: "/assets/imgs/banner/reviewer.png",
+      name: "Dolor Sit",
+      rating: "/assets/imgs/banner/rating.png",
+      text: "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+    },
+    {
+      image: "/assets/imgs/banner/reviewer.png",
+      name: "Amet Consectetur",
+      rating: "/assets/imgs/banner/rating.png",
+      text: "It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.",
+    },
+  ];
+
+  return (
+    <section className="relative w-full min-h-screen overflow-hidden bg-white flex items-center justify-center">
+      {/* Background Image */}
+      <Image
+        className="absolute inset-0 w-full h-full object-cover"
+        alt="Background"
+        src="/assets/imgs/banner/4.jpg"
+        width={1440}
+        height={1080}
+        priority
+      />
+
+      {/* Overlay + Content */}
+      <div className="relative z-10 container mx-auto px-4 sm:px-8 md:px-12 lg:px-20 xl:px-32 py-16 sm:py-20">
+        <div className="bg-black/20 rounded-3xl p-6 sm:p-10 md:p-14 lg:p-16 text-white">
+          {/* Heading */}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-10 text-left">
+            Reviews
+          </h2>
+
+          {/* Review Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
+            {reviews.map((review, index) => (
+              <div
+                key={index}
+                className="flex flex-col lg:flex-col items-center sm:items-start lg:items-center text-center sm:text-left lg:text-center bg-white/10 rounded-2xl p-6 sm:p-8 hover:bg-white/20 transition"
+              >
+                {/* Reviewer Image */}
+                <Image
+                  alt={review.name}
+                  src={review.image}
+                  width={90}
+                  height={90}
+                  className="rounded-full object-cover mb-4 sm:mb-0 sm:mr-4 lg:mr-0"
+                />
+
+                {/* Reviewer Info */}
+                <div className="flex flex-col items-center sm:items-start lg:items-center">
+                  <h3 className="text-xl sm:text-2xl font-semibold mb-2">
+                    {review.name}
+                  </h3>
+                  <Image
+                    alt="Rating"
+                    src={review.rating}
+                    width={110}
+                    height={20}
+                    className="mb-3"
+                  />
+                  <p className="text-sm sm:text-base font-light text-gray-200 leading-relaxed">
+                    {review.text}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* View All link */}
+          <div className="mt-12 flex justify-center">
+            <a
+              href="#"
+              className="primary-color text-lg sm:text-2xl font-bold underline hover:text-white transition cursor-pointer"
+            >
+              View all
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
