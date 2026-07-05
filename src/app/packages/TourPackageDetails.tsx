@@ -22,14 +22,14 @@ export default function TourPackageDetail({ tour }: TourPackageDetailProps) {
   const relatedGuides = guides.filter((guide) => tour.guides.includes(guide.id));
 
   return (
-    <div className="overflow-x-hidden">
+    <div className="bg-beach-app overflow-x-hidden">
       <Navbar navigationItems={publicNavigation} mode="transparent" />
 
       <section className="relative overflow-hidden pt-28">
         <div className="relative h-[520px]">
           <Image src={tour.image} alt={tour.title} fill priority className="object-cover" sizes="100vw" />
           <div className="hero-overlay absolute inset-0" />
-          <PageShell className="relative flex h-full items-end pb-12">
+          <PageShell width="wide" className="relative flex h-full items-end pb-12">
             <div className="max-w-4xl text-white">
               <div className="mb-5 flex flex-wrap gap-2">
                 {tour.featured ? <Badge variant="accent">Featured</Badge> : null}
@@ -40,7 +40,7 @@ export default function TourPackageDetail({ tour }: TourPackageDetailProps) {
                   {tour.status}
                 </Badge>
               </div>
-              <h1 className="font-display text-6xl leading-[0.92]">{tour.title}</h1>
+              <h1 className="font-display text-[clamp(3rem,6vw,5.6rem)] leading-[0.92] max-w-[900px]">{tour.title}</h1>
               <div className="mt-6 flex flex-wrap gap-4 text-sm text-white/82">
                 <p className="flex items-center gap-2">
                   <MapPin className="h-4 w-4 text-[var(--sun)]" />
@@ -64,7 +64,7 @@ export default function TourPackageDetail({ tour }: TourPackageDetailProps) {
         </div>
       </section>
 
-      <section className="section-space">
+      <section className="mist-section scroll-wave-bg wave-divider-top section-space">
         <PageShell className="grid gap-6 lg:grid-cols-[minmax(0,1.4fr)_380px] lg:items-start">
           <div className="space-y-6">
             <Card variant="default" className="space-y-5">
@@ -92,7 +92,7 @@ export default function TourPackageDetail({ tour }: TourPackageDetailProps) {
                 />
                 <div className="space-y-5">
                   {tour.itinerary.map((day) => (
-                    <div key={`${tour.id}-${day.day}`} className="flex gap-4 rounded-[24px] border border-[var(--border-soft)] p-5">
+                    <div key={`${tour.id}-${day.day}`} className="glass-panel soft-hover flex gap-4 rounded-[24px] border border-[var(--border-soft)] p-5">
                       <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[rgba(94,211,208,0.2)] text-sm font-semibold text-[var(--ocean-deep)]">
                         {day.day}
                       </div>
@@ -155,7 +155,7 @@ export default function TourPackageDetail({ tour }: TourPackageDetailProps) {
                 />
                 <div className="grid gap-4">
                   {relatedHotels.map((stay) => (
-                    <div key={stay.id} className="grid gap-4 rounded-[24px] border border-[var(--border-soft)] p-4 md:grid-cols-[140px_1fr]">
+                    <div key={stay.id} className="glass-panel wave-card soft-hover grid gap-4 rounded-[24px] border border-[var(--border-soft)] p-4 md:grid-cols-[140px_1fr]">
                       <div className="relative h-32 overflow-hidden rounded-[20px]">
                         <Image src={stay.image} alt={stay.name} fill className="object-cover" sizes="140px" />
                       </div>
@@ -192,7 +192,7 @@ export default function TourPackageDetail({ tour }: TourPackageDetailProps) {
                 />
                 <div className="grid gap-4 md:grid-cols-2">
                   {relatedGuides.map((guide) => (
-                    <div key={guide.id} className="rounded-[24px] border border-[var(--border-soft)] p-5">
+                    <div key={guide.id} className="glass-panel wave-card soft-hover rounded-[24px] border border-[var(--border-soft)] p-5">
                       <div className="flex items-center gap-4">
                         <div className="relative h-16 w-16 overflow-hidden rounded-full">
                           <Image src={guide.image} alt={guide.name} fill className="object-cover" sizes="64px" />

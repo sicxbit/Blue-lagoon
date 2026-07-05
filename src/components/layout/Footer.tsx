@@ -22,7 +22,7 @@ export default function Footer() {
                 Ocean-crafted journeys
               </div>
               <div className="space-y-3">
-                <h2 className="font-display text-4xl leading-none text-white md:text-5xl">Blue Lagoon</h2>
+                <h2 className="brand-logo brand-logo-inverse font-display text-4xl leading-none md:text-5xl">Blue Lagoon</h2>
                 <p className="max-w-xl text-sm leading-7 text-white/72 md:text-base">
                   Premium coastal escapes, island stays, and local guide experiences designed to feel calm, polished, and unforgettable.
                 </p>
@@ -33,7 +33,7 @@ export default function Footer() {
                     key={label}
                     href={href}
                     aria-label={label}
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/8 text-white/88 transition hover:border-white/24 hover:bg-white/14"
+                    className="soft-hover transition-smooth inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/8 text-white/88 hover:border-white/24 hover:bg-white/14"
                   >
                     <Icon className="h-4 w-4" />
                   </a>
@@ -45,14 +45,14 @@ export default function Footer() {
               <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--sun)]">Navigate</h3>
               <div className="grid gap-3">
                 {publicNavigation.map((item) => (
-                  <Link key={item.href} href={item.href} className="text-sm text-white/76 transition hover:text-white">
+                  <Link key={item.href} href={item.href} className="wave-link wave-link-calm transition-smooth text-sm text-white/76 hover:text-[var(--mist)]">
                     {item.label}
                   </Link>
                 ))}
-                <Link href="/guide" className="text-sm text-white/76 transition hover:text-white">
+                <Link href="/guide" className="wave-link wave-link-calm transition-smooth text-sm text-white/76 hover:text-[var(--mist)]">
                   Guide
                 </Link>
-                <Link href="/admin" className="text-sm text-white/76 transition hover:text-white">
+                <Link href="/admin" className="wave-link wave-link-calm transition-smooth text-sm text-white/76 hover:text-[var(--mist)]">
                   Admin
                 </Link>
               </div>

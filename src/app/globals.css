@@ -1,20 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --ocean-deep: #063b4c;
+  --ocean-deep: #033b4a;
   --ocean: #087e8b;
-  --ocean-light: #2ca6b1;
-  --aqua: #5ed3d0;
+  --ocean-light: #22c7c9;
+  --aqua: #18b7a6;
+  --seafoam: #4ec7a1;
   --sand: #f4e3c1;
-  --sun: #f6c85f;
+  --gold-sand: #e8c77a;
+  --sun: #f7c65f;
   --coral: #ff7a59;
-  --mist: #f5fbfc;
+  --mist: #eaf8fa;
   --surface: #ffffff;
-  --surface-glass: rgba(255, 255, 255, 0.88);
-  --surface-glass-strong: rgba(255, 255, 255, 0.94);
+  --surface-glass: rgba(255, 255, 255, 0.82);
+  --surface-glass-strong: rgba(255, 255, 255, 0.9);
   --surface-glass-dark: rgba(6, 59, 76, 0.52);
-  --mist-section: rgba(245, 251, 252, 0.92);
-  --surface-admin: rgba(255, 255, 255, 0.95);
+  --mist-section: rgba(234, 248, 250, 0.74);
+  --surface-admin: rgba(255, 255, 255, 0.94);
   --text-main: #12323a;
   --text-muted: #48666d;
   --text-light: #ffffff;
@@ -37,6 +39,8 @@
 }
 
 html {
+  max-width: 100%;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
@@ -44,6 +48,8 @@ body {
   position: relative;
   isolation: isolate;
   margin: 0;
+  max-width: 100%;
+  overflow-x: hidden;
   min-height: 100vh;
   color: var(--text-main);
   font-family: var(--font-body), sans-serif;
@@ -56,7 +62,7 @@ body::before {
   inset: 0;
   z-index: -2;
   background:
-    linear-gradient(180deg, rgba(6, 59, 76, 0.2) 0%, rgba(6, 59, 76, 0.06) 36%, rgba(6, 59, 76, 0.22) 100%),
+    linear-gradient(180deg, rgba(3, 59, 74, 0.18) 0%, rgba(3, 59, 74, 0.04) 36%, rgba(3, 59, 74, 0.18) 100%),
     url("/assets/imgs/banner/beach.jpg") center / cover no-repeat;
 }
 
@@ -66,9 +72,9 @@ body::after {
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(circle at top left, rgba(94, 211, 208, 0.18), transparent 28%),
-    radial-gradient(circle at top right, rgba(246, 200, 95, 0.14), transparent 22%),
-    linear-gradient(180deg, rgba(245, 251, 252, 0.68) 0%, rgba(245, 251, 252, 0.82) 100%);
+    radial-gradient(circle at top left, rgba(34, 199, 201, 0.15), transparent 28%),
+    radial-gradient(circle at top right, rgba(247, 198, 95, 0.12), transparent 22%),
+    linear-gradient(180deg, rgba(234, 248, 250, 0.54) 0%, rgba(234, 248, 250, 0.7) 100%);
   pointer-events: none;
 }
 
@@ -90,7 +96,7 @@ textarea {
 }
 
 .site-container {
-  @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8;
+  @apply mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-10 xl:px-12;
 }
 
 .section-space {
@@ -161,12 +167,15 @@ textarea {
 
 .bg-beach-app {
   position: relative;
+  overflow: clip;
   background:
-    linear-gradient(180deg, var(--mist-section) 0%, rgba(245, 251, 252, 0.94) 100%);
+    linear-gradient(180deg, rgba(234, 248, 250, 0.76) 0%, rgba(255, 255, 255, 0.82) 100%);
 }
 
 .mist-section {
-  background: var(--mist-section);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(234, 248, 250, 0.76) 0%, rgba(255, 255, 255, 0.82) 100%);
   backdrop-filter: blur(16px);
 }
 
@@ -180,7 +189,7 @@ textarea {
 
 .glass-panel,
 .glass-card {
-  background: var(--surface-glass);
+  background: rgba(255, 255, 255, 0.86);
   border: 1px solid rgba(255, 255, 255, 0.45);
   box-shadow: var(--shadow-strong);
   backdrop-filter: blur(18px);
@@ -188,7 +197,7 @@ textarea {
 }
 
 .glass-panel-strong {
-  background: var(--surface-glass-strong);
+  background: rgba(255, 255, 255, 0.92);
   border: 1px solid rgba(255, 255, 255, 0.55);
   box-shadow: var(--shadow-strong);
   backdrop-filter: blur(22px);
@@ -204,10 +213,26 @@ textarea {
 }
 
 .glass-nav {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.84);
   border: 1px solid rgba(255, 255, 255, 0.55);
   box-shadow: 0 16px 36px rgba(6, 59, 76, 0.16);
   backdrop-filter: blur(22px);
+}
+
+.brand-logo {
+  background: linear-gradient(90deg, var(--ocean-deep) 0%, var(--ocean) 56%, var(--ocean-light) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 1px 18px rgba(3, 59, 74, 0.14);
+}
+
+.brand-logo-inverse {
+  background: linear-gradient(90deg, var(--sand) 0%, var(--ocean-light) 58%, #bdeff2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 1px 18px rgba(3, 59, 74, 0.28);
 }
 
 .text-on-glass {
@@ -219,14 +244,102 @@ textarea {
   text-shadow: 0 10px 24px rgba(6, 59, 76, 0.32);
 }
 
+.wave-hover,
+.wave-button,
+.wave-card,
+.wave-link {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.wave-hover::before,
+.wave-button::before,
+.wave-card::before,
+.wave-link::before {
+  content: "";
+  position: absolute;
+  inset: auto -18% -42% -18%;
+  height: 74%;
+  background:
+    radial-gradient(circle at 18% 38%, rgba(189, 239, 242, 0.28) 0%, transparent 18%),
+    radial-gradient(circle at 78% 42%, rgba(34, 199, 201, 0.22) 0%, transparent 20%),
+    linear-gradient(90deg, transparent 0%, rgba(8, 126, 139, 0.16) 18%, rgba(34, 199, 201, 0.2) 44%, rgba(189, 239, 242, 0.24) 60%, rgba(8, 126, 139, 0.14) 84%, transparent 100%);
+  transform: translate3d(-6%, 24px, 0);
+  opacity: 0;
+  transition:
+    transform 280ms var(--ease-smooth),
+    opacity 280ms var(--ease-smooth),
+    background-position 380ms var(--ease-smooth);
+  background-size: 150% 100%;
+  background-position: 0% 50%;
+  pointer-events: none;
+}
+
+.wave-hover:hover::before,
+.wave-button:hover::before,
+.wave-card:hover::before,
+.wave-link:hover::before {
+  transform: translateY(0);
+  opacity: 1;
+  background-position: 100% 50%;
+}
+
+.wave-link-calm::before {
+  inset: auto -10% -38% -10%;
+  height: 58%;
+  opacity: 0;
+}
+
+.wave-link::after {
+  content: "";
+  position: absolute;
+  left: 14%;
+  right: 14%;
+  bottom: 0.3rem;
+  height: 4px;
+  border-radius: 999px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 6' preserveAspectRatio='none'%3E%3Cpath fill='rgba(34,199,201,0.95)' d='M0 3C10 0 20 0 30 3S50 6 60 3s20-3 30 0 20 3 30 0v3H0Z'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 72px 4px;
+  background-position: 0 50%;
+  box-shadow: 0 0 10px rgba(34, 199, 201, 0.18);
+  transform: translateY(2px) scaleX(0.68);
+  transform-origin: center;
+  opacity: 0;
+  transition:
+    transform 240ms var(--ease-smooth),
+    opacity 240ms var(--ease-smooth),
+    background-position 420ms var(--ease-smooth);
+}
+
+.wave-link:hover::after,
+.wave-link[aria-current="page"]::after {
+  transform: translateY(0) scaleX(1);
+  opacity: 1;
+  background-position: 36px 50%;
+}
+
+.wave-link-calm::after {
+  left: 0;
+  right: 40%;
+  bottom: -0.08rem;
+  opacity: 0;
+}
+
+.wave-link-calm:hover::after,
+.wave-link-calm[aria-current="page"]::after {
+  opacity: 0.9;
+}
+
 .ocean-button {
-  background-image: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean) 52%, var(--aqua) 100%);
+  background-image: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean) 52%, var(--ocean-light) 100%);
   color: var(--text-light);
   box-shadow: 0 16px 30px rgba(8, 126, 139, 0.24);
 }
 
 .sand-button {
-  background: rgba(244, 227, 193, 0.88);
+  background: linear-gradient(135deg, rgba(232, 199, 122, 0.94) 0%, rgba(247, 198, 95, 0.88) 100%);
   color: var(--ocean-deep);
   border: 1px solid rgba(255, 255, 255, 0.52);
   box-shadow: 0 16px 30px rgba(6, 59, 76, 0.12);
@@ -237,6 +350,50 @@ textarea {
   color: var(--sun);
   border: 1px solid rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(16px);
+}
+
+.scroll-wave-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(8, 126, 139, 0.08), transparent 20%, rgba(34, 199, 201, 0.08) 50%, transparent 78%, rgba(189, 239, 242, 0.08)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath fill='rgba(8,126,139,0.12)' d='M0,64 C120,104 240,8 360,40 C480,72 600,120 720,96 C840,72 960,8 1080,24 C1200,40 1320,104 1440,80 L1440,120 L0,120 Z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat, repeat-x;
+  background-size: 180% 100%, 1200px 110px;
+  background-position: 0% 50%, center bottom;
+  opacity: 0.48;
+  pointer-events: none;
+  animation: wave-drift 18s linear infinite;
+}
+
+.wave-divider-top::before,
+.wave-divider-bottom::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 84px;
+  pointer-events: none;
+  opacity: 0.42;
+  background-repeat: repeat-x;
+  background-size: 1200px 84px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 84' preserveAspectRatio='none'%3E%3Cpath fill='rgba(255,255,255,0.62)' d='M0,42 C96,18 192,0 288,12 C384,24 480,66 576,66 C672,66 768,18 864,12 C960,6 1056,42 1152,54 C1248,66 1344,54 1440,30 L1440,84 L0,84 Z'/%3E%3C/svg%3E");
+}
+
+.wave-divider-top::before {
+  top: -1px;
+}
+
+.wave-divider-bottom::after {
+  bottom: -1px;
+  transform: rotate(180deg);
+}
+
+.ocean-shimmer {
+  box-shadow:
+    0 16px 36px rgba(3, 59, 74, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.38);
 }
 
 @keyframes page-enter {
@@ -270,6 +427,15 @@ textarea {
   }
 }
 
+@keyframes wave-drift {
+  from {
+    background-position: 0% 50%, 0 bottom;
+  }
+  to {
+    background-position: 100% 50%, 1200px bottom;
+  }
+}
+
 .text-muted {
   color: var(--text-muted);
 }
@@ -295,5 +461,17 @@ textarea {
   .soft-hover:hover,
   .pressable:active {
     transform: none !important;
+  }
+
+  .scroll-wave-bg::before,
+  .wave-hover::before,
+  .wave-button::before,
+  .wave-card::before,
+  .wave-link::before,
+  .wave-link::after {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    background-position: 0 50% !important;
   }
 }

@@ -12,7 +12,7 @@ interface TourPackageCardProps {
 
 export function TourPackageCard({ tour }: TourPackageCardProps) {
   return (
-    <Card variant="default" className="soft-hover overflow-hidden p-0">
+    <Card variant="default" className="wave-card soft-hover ocean-shimmer overflow-hidden p-0">
       <div className="relative h-64 overflow-hidden">
         <Image
           src={tour.image}

@@ -15,7 +15,7 @@ export default function VendorPage() {
     <div className="bg-beach-app overflow-x-hidden">
       <Navbar navigationItems={publicNavigation} mode="solid" />
 
-      <section className="pt-32">
+      <section className="mist-section scroll-wave-bg wave-divider-top pt-32">
         <PageShell className="section-gap">
           <SectionHeader
             eyebrow="Local guides"
@@ -25,7 +25,7 @@ export default function VendorPage() {
 
           <div className="grid gap-6 md:grid-cols-2">
             {publishedGuides.map((guide) => (
-              <Card key={guide.id} variant="default" className="space-y-5">
+              <Card key={guide.id} variant="default" className="wave-card soft-hover ocean-shimmer space-y-5">
                 <div className="flex gap-4">
                   <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-[24px]">
                     <Image src={guide.image} alt={guide.name} fill className="object-cover" sizes="96px" />

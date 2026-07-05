@@ -56,10 +56,11 @@ Notes:
 Blue Lagoon uses:
 
 - a beach/ocean image as the app-wide background
-- stronger glassmorphism panels and mist sections for readability
+- a blue-ocean and golden-sand palette with teal/seafoam used only as a supporting lagoon accent
+- stronger translucent glassmorphism panels and mist sections so beach and wave texture still shows through
 - reusable glassmorphism utilities in `src/app/globals.css`
 - shared UI components in `src/components/ui`
-- systemwide CSS animation utilities with reduced-motion support
+- systemwide CSS animation, wave-hover, and reduced-motion support
 
 Useful global utilities include:
 

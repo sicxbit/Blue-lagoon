@@ -32,14 +32,14 @@ export default function Home() {
         />
         <div className="hero-overlay absolute inset-0" />
 
-        <PageShell className="relative flex min-h-screen items-end pb-16 pt-36 md:pb-24">
+        <PageShell width="wide" className="relative flex min-h-screen items-end pb-16 pt-36 md:pb-24">
           <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
             <div className="max-w-3xl space-y-7 text-white">
               <Badge variant="accent" className="sun-badge">
                 Blue Lagoon ocean journeys
               </Badge>
               <div className="space-y-5">
-                <h1 className="text-on-dark-glass font-display text-6xl leading-[0.88] text-balance sm:text-7xl lg:text-8xl">
+                <h1 className="text-on-dark-glass font-display text-[clamp(3.8rem,8.4vw,8.25rem)] leading-[0.88] text-balance max-w-[950px]">
                   Designed around sea light, slow mornings, and unforgettable shores.
                 </h1>
                 <p className="text-on-dark-glass max-w-2xl text-base leading-8 text-white/92 md:text-lg">
@@ -67,7 +67,7 @@ export default function Home() {
                   { label: "Partner stays", value: hotels.length, icon: MapPinned },
                   { label: "Trusted guides", value: guides.filter((item) => item.status === "published").length, icon: ShieldCheck },
                 ].map((item) => (
-                  <div key={item.label} className="glass-panel-strong soft-hover rounded-[24px] p-5 text-[var(--text-main)]">
+                  <div key={item.label} className="glass-panel-strong wave-card soft-hover ocean-shimmer rounded-[24px] p-5 text-[var(--text-main)]">
                     <item.icon className="h-5 w-5 text-[var(--sun)]" />
                     <p className="mt-4 text-3xl font-semibold text-[var(--ocean-deep)]">{item.value}</p>
                     <p className="mt-1 text-sm text-[var(--text-muted)]">{item.label}</p>
@@ -79,7 +79,7 @@ export default function Home() {
         </PageShell>
       </section>
 
-      <section className="mist-section section-space">
+      <section className="mist-section scroll-wave-bg wave-divider-top wave-divider-bottom section-space">
         <PageShell className="section-gap">
           <SectionHeader
             eyebrow="Featured journeys"
@@ -95,7 +95,7 @@ export default function Home() {
         </PageShell>
       </section>
 
-      <section className="mist-section pb-16 md:pb-24">
+      <section className="mist-section scroll-wave-bg wave-divider-top pb-16 md:pb-24">
         <PageShell>
           <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
             <Card variant="default" className="space-y-6">
@@ -119,7 +119,7 @@ export default function Home() {
                     description: "The new admin foundation is ready for future API and database persistence.",
                   },
                 ].map((item) => (
-                  <div key={item.title} className="rounded-[24px] bg-[rgba(8,126,139,0.05)] p-5">
+                  <div key={item.title} className="glass-panel wave-card soft-hover rounded-[24px] p-5">
                     <Sparkles className="h-5 w-5 text-[var(--ocean)]" />
                     <h3 className="mt-4 text-lg font-semibold text-[var(--ocean-deep)]">{item.title}</h3>
                     <p className="mt-2 text-sm leading-7 text-[var(--text-muted)]">{item.description}</p>
@@ -136,7 +136,7 @@ export default function Home() {
               />
               <div className="space-y-4">
                 {hotels.slice(0, 3).map((stay) => (
-                  <div key={stay.id} className="flex gap-4 rounded-[24px] border border-[var(--border-soft)] p-4">
+                  <div key={stay.id} className="glass-panel wave-card soft-hover flex gap-4 rounded-[24px] border border-[var(--border-soft)] p-4">
                     <div className="relative h-24 w-24 overflow-hidden rounded-[20px]">
                       <Image src={stay.image} alt={stay.name} fill className="object-cover" sizes="96px" />
                     </div>
@@ -171,7 +171,7 @@ export default function Home() {
                 />
                 <div className="grid gap-4 md:grid-cols-2">
                   {guides.filter((guide) => guide.status === "published").slice(0, 2).map((guide) => (
-                    <div key={guide.id} className="rounded-[24px] bg-[rgba(8,126,139,0.05)] p-5">
+                    <div key={guide.id} className="glass-panel wave-card soft-hover rounded-[24px] p-5">
                       <div className="flex items-center gap-3">
                         <div className="relative h-14 w-14 overflow-hidden rounded-full">
                           <Image src={guide.image} alt={guide.name} fill className="object-cover" sizes="56px" />

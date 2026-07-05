@@ -32,10 +32,10 @@ export default function Navbar({ navigationItems, mode = "solid" }: NavbarProps)
   const isSolid = mode === "solid" || scrolled;
 
   return (
-    <nav className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
+    <nav className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8 xl:px-10">
       <div
         className={cn(
-          "transition-smooth mx-auto flex max-w-7xl items-center justify-between rounded-full border px-5 py-3",
+          "transition-smooth mx-auto flex w-full max-w-[1320px] items-center justify-between rounded-full border px-5 py-3",
           isSolid
             ? "glass-nav"
             : "border-white/16 bg-[rgba(6,59,76,0.42)] shadow-[0_16px_36px_rgba(6,59,76,0.16)] backdrop-blur-xl"
@@ -44,8 +44,8 @@ export default function Navbar({ navigationItems, mode = "solid" }: NavbarProps)
         <Link
           href="/"
           className={cn(
-            "transition-smooth font-display text-2xl font-semibold tracking-[0.08em]",
-            isSolid ? "text-[var(--ocean-deep)] drop-shadow-[0_1px_0_rgba(255,255,255,0.45)]" : "text-white"
+            "brand-logo transition-smooth font-display text-2xl font-semibold tracking-[0.1em]",
+            isSolid ? "drop-shadow-[0_1px_10px_rgba(3,59,74,0.12)]" : "brand-logo-inverse"
           )}
         >
           Blue Lagoon
@@ -58,8 +58,9 @@ export default function Navbar({ navigationItems, mode = "solid" }: NavbarProps)
               <Link
                 key={item.href}
                 href={item.href}
+                aria-current={active ? "page" : undefined}
                 className={cn(
-                  "transition-smooth rounded-full px-4 py-2 text-sm font-medium",
+                  "wave-link transition-smooth rounded-full px-4 py-2 text-sm font-medium",
                   active
                     ? "bg-[rgba(8,126,139,0.16)] text-[var(--ocean-deep)]"
                     : isSolid
@@ -99,7 +100,7 @@ export default function Navbar({ navigationItems, mode = "solid" }: NavbarProps)
                   href={item.href}
                   onClick={() => setMenuOpen(false)}
                   className={cn(
-                    "rounded-2xl px-4 py-3 text-sm font-medium transition",
+                    "wave-link wave-link-calm rounded-2xl px-4 py-3 text-sm font-medium transition",
                     active
                       ? "bg-[rgba(8,126,139,0.12)] text-[var(--ocean-deep)]"
                       : "text-[var(--text-main)] hover:bg-[rgba(8,126,139,0.08)]"

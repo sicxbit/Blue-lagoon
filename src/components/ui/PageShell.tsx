@@ -11,10 +11,10 @@ export function PageShell({ children, className, width = "default" }: PageShellP
   return (
     <div
       className={cn(
-        "page-enter mx-auto w-full px-5 sm:px-6 lg:px-8",
+        "page-enter mx-auto w-full max-w-full px-4 sm:px-6 lg:px-10 xl:px-12",
         width === "narrow" && "max-w-4xl",
-        width === "default" && "max-w-7xl",
-        width === "wide" && "max-w-[88rem]",
+        width === "default" && "max-w-[1200px]",
+        width === "wide" && "max-w-[1320px]",
         className
       )}
     >

@@ -57,7 +57,7 @@ export default function AdminDashboardPage() {
 
       <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
         {stats.map((stat) => (
-          <Card key={stat.label} variant="admin" className="space-y-3">
+          <Card key={stat.label} variant="admin" className="soft-hover space-y-3">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--ocean)]">{stat.label}</p>
             <p className="text-4xl font-semibold text-[var(--ocean-deep)]">{stat.value}</p>
             <p className="text-sm text-[var(--text-muted)]">{stat.helper}</p>
@@ -79,7 +79,7 @@ export default function AdminDashboardPage() {
           <h3 className="text-xl font-semibold text-[var(--ocean-deep)]">Recently staged content</h3>
           <div className="grid gap-4 md:grid-cols-2">
             {packages.slice(0, 4).map((item) => (
-              <div key={item.id} className="rounded-2xl border border-[var(--border-soft)] p-4">
+              <div key={item.id} className="glass-panel soft-hover rounded-2xl border border-[var(--border-soft)] p-4">
                 <div className="flex items-center justify-between gap-3">
                   <h4 className="font-semibold text-[var(--ocean-deep)]">{item.title}</h4>
                   <Badge variant={item.status === "published" ? "success" : "warning"}>{item.status}</Badge>

@@ -21,7 +21,7 @@ export function AdminSidebar() {
       <div className="space-y-3 border-b border-white/10 pb-5">
         <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[var(--sun)]">Admin</p>
         <div>
-          <h2 className="font-display text-4xl leading-none">Blue Lagoon</h2>
+          <h2 className="brand-logo brand-logo-inverse font-display text-4xl leading-none">Blue Lagoon</h2>
           <p className="mt-2 text-sm text-white/68">Manage packages, stays, and guides in demo mode.</p>
         </div>
       </div>
@@ -35,8 +35,9 @@ export function AdminSidebar() {
             <Link
               key={item.href}
               href={item.href}
+              aria-current={active ? "page" : undefined}
               className={cn(
-                "transition-smooth flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium",
+                "wave-link wave-link-calm transition-smooth flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium",
                 active
                   ? "bg-[rgba(244,227,193,0.92)] text-[var(--ocean-deep)] shadow-[0_12px_24px_rgba(6,59,76,0.12)]"
                   : "text-white/88 hover:bg-white/14 hover:text-white"

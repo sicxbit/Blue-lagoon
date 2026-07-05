@@ -37,11 +37,11 @@ export default function PackagesPage() {
         <div className="relative h-[420px]">
           <Image src="/assets/imgs/banner/beach.jpg" alt="Packages hero" fill priority className="object-cover" sizes="100vw" />
           <div className="hero-overlay absolute inset-0" />
-          <PageShell className="relative flex h-full items-end pb-12">
+          <PageShell width="wide" className="relative flex h-full items-end pb-12">
             <div className="max-w-3xl text-white">
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[var(--sun)]">Packages</p>
-              <h1 className="mt-4 font-display text-6xl leading-[0.92]">Ocean-led itineraries with cleaner structure.</h1>
-              <p className="mt-4 max-w-2xl text-base leading-8 text-white/82">
+              <h1 className="mt-4 font-display text-[clamp(3.2rem,6.4vw,5.6rem)] leading-[0.92] max-w-[860px]">Ocean-led itineraries with cleaner structure.</h1>
+              <p className="mt-4 max-w-2xl text-base leading-8 text-white/88">
                 Shared cards, consistent spacing, and structured local data now power the public package catalog.
               </p>
             </div>
@@ -49,7 +49,7 @@ export default function PackagesPage() {
         </div>
       </section>
 
-      <section className="mist-section section-space">
+      <section className="mist-section scroll-wave-bg wave-divider-top section-space">
         <PageShell className="section-gap">
           <Card variant="default" className="space-y-6">
             <SectionHeader
