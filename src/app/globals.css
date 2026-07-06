@@ -11,9 +11,10 @@
   --sun: #f7c65f;
   --coral: #ff7a59;
   --mist: #eaf8fa;
+  --mist-soft: #f5fbfc;
   --surface: #ffffff;
-  --surface-glass: rgba(255, 255, 255, 0.82);
-  --surface-glass-strong: rgba(255, 255, 255, 0.9);
+  --surface-glass: rgba(255, 255, 255, 0.94);
+  --surface-glass-strong: rgba(255, 255, 255, 0.98);
   --surface-glass-dark: rgba(6, 59, 76, 0.52);
   --mist-section: rgba(234, 248, 250, 0.74);
   --surface-admin: rgba(255, 255, 255, 0.94);
@@ -53,7 +54,7 @@ body {
   min-height: 100vh;
   color: var(--text-main);
   font-family: var(--font-body), sans-serif;
-  background: linear-gradient(180deg, #fcfeff 0%, var(--mist) 48%, #eef8f9 100%);
+  background: linear-gradient(180deg, #ffffff 0%, var(--mist-soft) 44%, var(--mist) 100%);
 }
 
 body::before {
@@ -61,9 +62,7 @@ body::before {
   position: fixed;
   inset: 0;
   z-index: -2;
-  background:
-    linear-gradient(180deg, rgba(3, 59, 74, 0.18) 0%, rgba(3, 59, 74, 0.04) 36%, rgba(3, 59, 74, 0.18) 100%),
-    url("/assets/imgs/banner/beach.jpg") center / cover no-repeat;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(245, 251, 252, 0.98) 46%, rgba(234, 248, 250, 0.98) 100%);
 }
 
 body::after {
@@ -72,9 +71,8 @@ body::after {
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(circle at top left, rgba(34, 199, 201, 0.15), transparent 28%),
-    radial-gradient(circle at top right, rgba(247, 198, 95, 0.12), transparent 22%),
-    linear-gradient(180deg, rgba(234, 248, 250, 0.54) 0%, rgba(234, 248, 250, 0.7) 100%);
+    radial-gradient(circle at top left, rgba(34, 199, 201, 0.05), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(8, 126, 139, 0.04), transparent 26%);
   pointer-events: none;
 }
 
@@ -168,31 +166,37 @@ textarea {
 .bg-beach-app {
   position: relative;
   overflow: clip;
-  background:
-    linear-gradient(180deg, rgba(234, 248, 250, 0.76) 0%, rgba(255, 255, 255, 0.82) 100%);
+  background: linear-gradient(180deg, #ffffff 0%, var(--mist-soft) 52%, var(--mist) 100%);
 }
 
 .mist-section {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(180deg, rgba(234, 248, 250, 0.76) 0%, rgba(255, 255, 255, 0.82) 100%);
-  backdrop-filter: blur(16px);
+  background: linear-gradient(180deg, var(--mist-soft) 0%, #ffffff 100%);
+}
+
+.public-section {
+  position: relative;
+  background: linear-gradient(180deg, #ffffff 0%, var(--mist-soft) 100%);
+}
+
+.public-section-muted {
+  position: relative;
+  background: linear-gradient(180deg, var(--mist) 0%, #ffffff 100%);
 }
 
 .surface-card {
-  background: var(--surface-glass-strong);
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(22px);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(245, 251, 252, 0.98) 100%);
+  border: 1px solid rgba(6, 59, 76, 0.08);
+  box-shadow: 0 18px 44px rgba(6, 59, 76, 0.08);
   color: var(--text-main);
 }
 
 .glass-panel,
 .glass-card {
-  background: rgba(255, 255, 255, 0.86);
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  box-shadow: var(--shadow-strong);
-  backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(6, 59, 76, 0.08);
+  box-shadow: 0 18px 40px rgba(6, 59, 76, 0.08);
   color: var(--text-main);
 }
 
@@ -219,18 +223,25 @@ textarea {
   backdrop-filter: blur(22px);
 }
 
+.section-card {
+  align-self: start;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(245, 251, 252, 0.98) 100%);
+  border: 1px solid rgba(6, 59, 76, 0.08);
+  box-shadow: 0 22px 48px rgba(6, 59, 76, 0.08);
+  color: var(--text-main);
+}
+
 .premium-card {
   position: relative;
   isolation: isolate;
+  align-self: start;
   overflow: hidden;
-  border-radius: 32px;
-  border: 1px solid rgba(255, 255, 255, 0.52);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, rgba(239, 249, 251, 0.58) 100%);
+  border-radius: 34px;
+  border: 1px solid rgba(6, 59, 76, 0.08);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(245, 251, 252, 0.98) 100%);
   box-shadow:
-    0 22px 48px rgba(3, 59, 74, 0.12),
+    0 20px 42px rgba(3, 59, 74, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(22px);
 }
 
 .premium-card::after {
@@ -239,10 +250,7 @@ textarea {
   inset: 0;
   z-index: 0;
   border-radius: inherit;
-  background:
-    radial-gradient(circle at top right, rgba(34, 199, 201, 0.12), transparent 28%),
-    radial-gradient(circle at bottom left, rgba(189, 239, 242, 0.12), transparent 24%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.12) 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(234, 248, 250, 0.12) 100%);
   pointer-events: none;
 }
 
@@ -254,19 +262,20 @@ textarea {
 .premium-card-surface {
   position: relative;
   z-index: 1;
-  overflow: hidden;
-  backdrop-filter: blur(12px);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(239, 249, 251, 0.18) 22%, rgba(234, 248, 250, 0.34) 100%);
+  background: transparent;
 }
 
 .premium-card-surface::before {
-  content: "";
-  position: absolute;
-  inset: -52px 0 auto;
-  height: 84px;
-  background: linear-gradient(180deg, rgba(234, 248, 250, 0) 0%, rgba(234, 248, 250, 0.48) 70%, rgba(234, 248, 250, 0.72) 100%);
-  pointer-events: none;
+  content: none;
+}
+
+.price-pill-box {
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.44);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.58) 0%, rgba(226, 245, 247, 0.68) 100%);
+  box-shadow:
+    0 12px 24px rgba(6, 59, 76, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.34);
 }
 
 .brand-logo {
@@ -356,13 +365,13 @@ textarea {
   left: 14%;
   right: 14%;
   bottom: 0.3rem;
-  height: 4px;
+  height: 3px;
   border-radius: 999px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 6' preserveAspectRatio='none'%3E%3Cpath fill='rgba(34,199,201,0.95)' d='M0 3C10 0 20 0 30 3S50 6 60 3s20-3 30 0 20 3 30 0v3H0Z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 6' preserveAspectRatio='none'%3E%3Cpath fill='rgba(189,239,242,0.96)' d='M0 3C10 0 20 0 30 3S50 6 60 3s20-3 30 0 20 3 30 0v3H0Z'/%3E%3C/svg%3E");
   background-repeat: repeat-x;
-  background-size: 72px 4px;
+  background-size: 72px 3px;
   background-position: 0 50%;
-  box-shadow: 0 0 10px rgba(34, 199, 201, 0.18);
+  box-shadow: 0 0 8px rgba(34, 199, 201, 0.12);
   transform: translateY(2px) scaleX(0.68);
   transform-origin: center;
   opacity: 0;
@@ -412,41 +421,12 @@ textarea {
 }
 
 .scroll-wave-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, rgba(8, 126, 139, 0.08), transparent 20%, rgba(34, 199, 201, 0.08) 50%, transparent 78%, rgba(189, 239, 242, 0.08)),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath fill='rgba(8,126,139,0.12)' d='M0,64 C120,104 240,8 360,40 C480,72 600,120 720,96 C840,72 960,8 1080,24 C1200,40 1320,104 1440,80 L1440,120 L0,120 Z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat, repeat-x;
-  background-size: 180% 100%, 1200px 110px;
-  background-position: 0% 50%, center bottom;
-  opacity: 0.48;
-  pointer-events: none;
-  animation: wave-drift 18s linear infinite;
+  content: none;
 }
 
 .wave-divider-top::before,
 .wave-divider-bottom::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 84px;
-  pointer-events: none;
-  opacity: 0.42;
-  background-repeat: repeat-x;
-  background-size: 1200px 84px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 84' preserveAspectRatio='none'%3E%3Cpath fill='rgba(255,255,255,0.62)' d='M0,42 C96,18 192,0 288,12 C384,24 480,66 576,66 C672,66 768,18 864,12 C960,6 1056,42 1152,54 C1248,66 1344,54 1440,30 L1440,84 L0,84 Z'/%3E%3C/svg%3E");
-}
-
-.wave-divider-top::before {
-  top: -1px;
-}
-
-.wave-divider-bottom::after {
-  bottom: -1px;
-  transform: rotate(180deg);
+  content: none;
 }
 
 .ocean-shimmer {

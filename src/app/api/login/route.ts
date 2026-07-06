@@ -1,14 +1,5 @@
-import crypto from "node:crypto";
 import { NextResponse } from "next/server";
-
-const ONE_DAY_SECONDS = 60 * 60 * 24;
-const DEFAULT_ADMIN_EMAIL = "admin@bluelagoon.com";
-const DEFAULT_ADMIN_PASSWORD = "password";
-const DEFAULT_SESSION_SECRET = "blue-lagoon-demo-session-secret";
-
-function signSession(payload: string, secret: string) {
-  return crypto.createHmac("sha256", secret).update(payload).digest("base64url");
-}
+import { ONE_DAY_SECONDS, createAdminSessionToken, isValidAdminCredentials } from "@/services/auth.service";
 
 export async function POST(req: Request) {
   try {
@@ -21,19 +12,11 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Invalid email or password" }, { status: 401 });
     }
 
-    const adminEmail = process.env.ADMIN_EMAIL ?? DEFAULT_ADMIN_EMAIL;
-    const adminPassword = process.env.ADMIN_PASSWORD ?? DEFAULT_ADMIN_PASSWORD;
-    const sessionSecret = process.env.SESSION_SECRET ?? DEFAULT_SESSION_SECRET;
-
-    if (email !== adminEmail || password !== adminPassword) {
+    if (!isValidAdminCredentials(email, password)) {
       return NextResponse.json({ error: "Invalid email or password" }, { status: 401 });
     }
 
-    const payload = JSON.stringify({ email, iat: Date.now() });
-    const payloadBase64 = Buffer.from(payload).toString("base64url");
-    const signature = signSession(payloadBase64, sessionSecret);
-    const token = `${payloadBase64}.${signature}`;
-
+    const token = createAdminSessionToken(email);
     const response = NextResponse.json({ ok: true });
     response.cookies.set({
       name: "cc_session",

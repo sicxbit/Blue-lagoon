@@ -20,7 +20,7 @@ const displayFont = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: "Blue Lagoon",
-  description: "Premium ocean-themed travel booking with beach-glass UI and admin management for packages, stays, and guides.",
+  description: "Blue Lagoon is a Lakshadweep travel platform connecting tourists with verified local guides, curated stays, and island journeys.",
 };
 
 export default function RootLayout({

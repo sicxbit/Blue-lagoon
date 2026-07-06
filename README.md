@@ -1,6 +1,6 @@
 # Blue Lagoon
 
-Premium ocean-themed travel package website with a lightweight admin UI for packages, hotels/stays, and guides.
+Lakshadweep-focused tourism platform connecting tourists with verified local guides, curated stays, and island travel packages, plus a lightweight demo vendor workspace.
 
 ## Tech Stack
 
@@ -24,16 +24,16 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Local Admin Login
+## Local Vendor Login
 
-The demo admin login works out of the box with these local defaults:
+The demo vendor login works out of the box with these local defaults:
 
 - email: `admin@bluelagoon.com`
 - password: `password`
 
-After login, the app routes to `/admin`.
+After login, the app routes to the protected vendor workspace at `/admin`.
 
-## Change Admin Credentials
+## Change Vendor Credentials
 
 The login flow supports environment variable overrides.
 
@@ -48,7 +48,7 @@ SESSION_SECRET=replace-with-your-own-secret
 Notes:
 
 - If `ADMIN_EMAIL` and `ADMIN_PASSWORD` are not set, the app falls back to the local demo credential above.
-- If `SESSION_SECRET` is not set, the app uses a local demo session secret so the cookie-based admin flow still works for development.
+- If `SESSION_SECRET` is not set, the app uses a local demo session secret so the cookie-based vendor login flow still works for development.
 - For any non-demo environment, set your own `SESSION_SECRET`.
 
 ## How the Theme Works
@@ -61,6 +61,7 @@ Blue Lagoon uses:
 - reusable glassmorphism utilities in `src/app/globals.css`
 - shared UI components in `src/components/ui`
 - systemwide CSS animation, wave-hover, and reduced-motion support
+- Lakshadweep-focused sample content and INR pricing across the public marketplace
 
 Useful global utilities include:
 
@@ -81,8 +82,8 @@ Useful global utilities include:
 - Visitors open package detail pages at `/packages/details/[id]`
 - Visitors can review local guides at `/vendor`
 - Visitors can read the product usage guide at `/guide`
-- Admins sign in at `/login`
-- Admins can manage packages, hotels/stays, and guides
+- Vendors sign in at `/login`
+- Vendors can preview-manage packages, hotels/stays, and guides through the protected `/admin` workspace
 
 ## Where to Edit Content
 
@@ -90,11 +91,12 @@ Useful global utilities include:
 - Hotels/stays data: `src/lib/data/hotels.ts`
 - Guides data: `src/lib/data/guides.ts`
 - Auth defaults: `src/app/api/login/route.ts` and `src/lib/auth.ts`
+- INR formatter: `src/lib/currency.ts`
 
 ## Current Limitations
 
 - No database yet
-- Admin create/edit/delete is demo/local-state only
+- Vendor create/edit/delete is demo/local-state only
 - Booking and inquiry actions are not connected to a backend
 - Image upload is not implemented
 

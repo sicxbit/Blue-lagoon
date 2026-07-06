@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LayoutDashboard, Map, Hotel, Users, ArrowUpRight } from "lucide-react";
+import { isPathActive } from "@/controllers/navigation.controller";
 import { adminNavigation } from "@/lib/navigation";
 import { cn } from "@/lib/cn";
 
@@ -15,27 +16,20 @@ const icons = {
 
 export function AdminSidebar() {
   const pathname = usePathname();
-  const isActive = (href: string) => {
-    if (href === "/admin") {
-      return pathname === "/admin";
-    }
-
-    return pathname === href || pathname.startsWith(`${href}/`);
-  };
 
   return (
     <aside className="glass-panel-dark page-enter rounded-[32px] p-6 text-white shadow-[0_24px_60px_rgba(6,59,76,0.2)]">
       <div className="space-y-3 border-b border-white/10 pb-5">
-        <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[var(--sun)]">Admin</p>
+        <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[var(--sun)]">Partner portal</p>
         <div>
           <h2 className="brand-logo brand-logo-inverse font-display text-4xl leading-none">Blue Lagoon</h2>
-          <p className="mt-2 text-sm text-white/68">Manage packages, stays, and guides in demo mode.</p>
+          <p className="mt-2 text-sm text-white/68">Manage your packages, stays, and guide listings in preview mode.</p>
         </div>
       </div>
 
       <nav className="mt-6 space-y-2">
         {adminNavigation.map((item) => {
-          const active = isActive(item.href);
+          const active = isPathActive(pathname, item.href);
           const Icon = icons[item.href as keyof typeof icons] ?? LayoutDashboard;
 
           return (

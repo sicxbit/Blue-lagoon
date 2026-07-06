@@ -7,7 +7,7 @@ const packageFields: AdminFormField[] = [
   { name: "slug", label: "Slug", type: "text" },
   { name: "destination", label: "Destination", type: "text" },
   { name: "duration", label: "Duration", type: "text" },
-  { name: "price", label: "Price", type: "number" },
+  { name: "price", label: "Starting price (INR)", type: "number" },
   { name: "rating", label: "Rating", type: "number" },
   { name: "image", label: "Image path", type: "text" },
   { name: "groupSize", label: "Group size", type: "text" },
@@ -42,7 +42,7 @@ export default async function EditAdminPackagePage({
   return (
     <AdminEntityForm
       title={`Edit package: ${item.title}`}
-      description="Adjust the package metadata, marketing copy, and visibility state."
+      description="Adjust the package listing metadata, marketing copy, and visibility state."
       backHref="/admin/packages"
       fields={packageFields}
       initialValues={{

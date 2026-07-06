@@ -5,7 +5,7 @@ export default function AdminGuidesPage() {
   return (
     <AdminCollectionTable
       title="Guides"
-      description="Keep local hosts, language coverage, and specialties organized for trip planning."
+      description="Keep Lakshadweep hosts, language coverage, and specialties organized for trip planning."
       rows={guides.map((item) => ({
         id: item.id,
         title: item.name,

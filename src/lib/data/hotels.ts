@@ -1,82 +1,66 @@
-export type StayType =
-  | "hotel"
-  | "resort"
-  | "homestay"
-  | "villa"
-  | "houseboat";
+import type { Stay } from "@/models/stay.model";
 
-export interface HotelStay {
-  id: string;
-  name: string;
-  location: string;
-  type: StayType;
-  image: string;
-  rating: number;
-  description: string;
-  amenities: string[];
-  priceRange: string;
-  status: "draft" | "published";
-}
+export type HotelStay = Stay;
 
-export const hotels: HotelStay[] = [
+export const hotels: Stay[] = [
   {
     id: "stay-reef-retreat",
-    name: "Reefline Retreat",
-    location: "North Male Atoll, Maldives",
+    name: "Agatti Lagoon House",
+    location: "Agatti Island, Lakshadweep",
     type: "resort",
     image: "/assets/imgs/banner/1.jpg",
     rating: 4.9,
-    description: "Overwater villas, reef access, and calm sunset decks for slow luxury escapes.",
-    amenities: ["Private plunge pool", "Lagoon spa", "Sunset dining", "Airport speedboat"],
-    priceRange: "$$$$",
+    description: "Lagoon-facing rooms, airport pickup support, and a calm premium base for couples and small families.",
+    amenities: ["Lagoon-view rooms", "Airport pickup", "Partner dining", "Snorkeling desk"],
+    priceRange: "₹12,000-₹28,000/night",
     status: "published",
   },
   {
     id: "stay-sand-cove",
-    name: "Sand Cove House",
-    location: "Paros, Greece",
+    name: "Bangaram Coral Retreat",
+    location: "Bangaram Island, Lakshadweep",
     type: "villa",
     image: "/assets/imgs/banner/2.jpg",
     rating: 4.8,
-    description: "A sea-view villa with whitewashed terraces and curated local breakfasts.",
-    amenities: ["Sea-view terrace", "Private host", "Cycladic breakfast", "Transfer desk"],
-    priceRange: "$$$",
+    description: "A private villa-style stay with polished service, sea-facing terraces, and a premium island feel.",
+    amenities: ["Sea-view terrace", "Private host", "Island transfers", "Curated meals"],
+    priceRange: "₹18,000-₹32,000/night",
     status: "published",
   },
   {
     id: "stay-lagoon-haven",
-    name: "Lagoon Haven",
-    location: "Kochi Backwaters, India",
-    type: "houseboat",
+    name: "Kadmat Dive Lodge",
+    location: "Kadmat Island, Lakshadweep",
+    type: "resort",
     image: "/assets/imgs/banner/3.jpg",
     rating: 4.7,
-    description: "A polished houseboat stay with chef-led dinners and still-water mornings.",
-    amenities: ["Private deck", "Chef dinner", "Sunrise cruise", "Air-conditioned suites"],
-    priceRange: "$$$",
+    description: "A dive-friendly partner stay that keeps reef access, equipment support, and quiet evenings in one place.",
+    amenities: ["Dive desk", "Air-conditioned rooms", "Breakfast", "Jetty transfers"],
+    priceRange: "₹9,000-₹18,000/night",
     status: "published",
   },
   {
     id: "stay-coral-view",
-    name: "Coral View Suites",
-    location: "Bali, Indonesia",
+    name: "Kavaratti Seabreeze Suites",
+    location: "Kavaratti, Lakshadweep",
     type: "hotel",
     image: "/assets/imgs/banner/4.jpg",
     rating: 4.6,
-    description: "Design-forward suites close to the shore with an easy base for island hopping.",
-    amenities: ["Infinity pool", "Breakfast included", "Harbor pickup", "Beach club access"],
-    priceRange: "$$",
+    description: "A polished town stay close to the waterfront, built for culture-led itineraries and family comfort.",
+    amenities: ["Breakfast included", "Town transfers", "Sea-view rooms", "Family suites"],
+    priceRange: "₹8,000-₹16,000/night",
     status: "published",
   },
   {
     id: "stay-sun-tide",
-    name: "Sun Tide Homestay",
-    location: "Goa, India",
+    name: "Minicoy Lighthouse Homestay",
+    location: "Minicoy Island, Lakshadweep",
     type: "homestay",
     image: "/assets/imgs/banner/5.jpg",
     rating: 4.5,
-    description: "Warm local hosting near hidden coves and early morning fishing villages.",
-    amenities: ["Local breakfast", "Bike rentals", "Host-guided walks", "Wi-Fi"],
-    priceRange: "$$",
+    description: "A warm local homestay with island storytelling, home-style meals, and access to village walks.",
+    amenities: ["Local breakfast", "Host-guided walks", "Home-style meals", "Wi-Fi"],
+    priceRange: "₹6,000-₹12,000/night",
     status: "draft",
   },
 ];

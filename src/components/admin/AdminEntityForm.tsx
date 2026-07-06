@@ -64,7 +64,7 @@ export function AdminEntityForm({
           <p className="max-w-2xl text-sm leading-7 text-[var(--text-muted)]">{description}</p>
         </div>
         <div className="rounded-2xl border border-[rgba(246,200,95,0.4)] bg-[rgba(246,200,95,0.16)] px-4 py-3 text-sm text-[var(--ocean-deep)]">
-          Demo form only. Changes are kept in local component state and are not persisted yet.
+          Preview form only. Changes are kept in local component state and are not persisted yet.
         </div>
       </Card>
 
@@ -80,7 +80,7 @@ export function AdminEntityForm({
           onSubmit={(event) => {
             event.preventDefault();
             // TODO: replace demo submit with API/database persistence for admin forms.
-            setNotice("Demo save complete. TODO: connect this form to a persistent API.");
+            setNotice("Preview save complete. TODO: connect this form to a persistent API.");
           }}
         >
           <div className="grid gap-6 xl:grid-cols-2">
@@ -158,7 +158,7 @@ export function AdminEntityForm({
 
           <div className="flex flex-col gap-3 sm:flex-row">
             <Button type="submit" variant="admin" size="lg">
-              Save demo changes
+              Save preview changes
             </Button>
             <Link href={backHref} className={buttonStyles({ variant: "secondary", size: "lg" })}>
               Cancel

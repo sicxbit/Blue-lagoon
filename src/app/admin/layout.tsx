@@ -16,8 +16,8 @@ export default async function AdminLayout({ children }: { children: ReactNode })
         <div className="stagger-children space-y-6">
           <header className="glass-panel-strong page-enter flex flex-col gap-4 rounded-[32px] px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[var(--ocean)]">Control center</p>
-              <h1 className="mt-1 font-display text-4xl leading-none text-[var(--ocean-deep)]">Admin Workspace</h1>
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[var(--ocean)]">Vendor control center</p>
+              <h1 className="mt-1 font-display text-4xl leading-none text-[var(--ocean-deep)]">Vendor Workspace</h1>
             </div>
             <div className="flex items-center gap-4">
               <div className="glass-panel rounded-2xl px-4 py-2 text-sm text-[var(--text-main)]">

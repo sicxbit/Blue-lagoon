@@ -1,11 +1,11 @@
 import { AdminEntityForm, type AdminFormField } from "@/components/admin/AdminEntityForm";
 
 const packageFields: AdminFormField[] = [
-  { name: "title", label: "Title", type: "text", placeholder: "Maldives Lagoon Escape" },
-  { name: "slug", label: "Slug", type: "text", placeholder: "maldives-lagoon-escape" },
-  { name: "destination", label: "Destination", type: "text", placeholder: "Maldives" },
+  { name: "title", label: "Title", type: "text", placeholder: "Agatti Lagoon Escape" },
+  { name: "slug", label: "Slug", type: "text", placeholder: "agatti-lagoon-escape" },
+  { name: "destination", label: "Destination", type: "text", placeholder: "Agatti Island, Lakshadweep" },
   { name: "duration", label: "Duration", type: "text", placeholder: "7 Days" },
-  { name: "price", label: "Price", type: "number", placeholder: "2499" },
+  { name: "price", label: "Starting price (INR)", type: "number", placeholder: "74999" },
   { name: "rating", label: "Rating", type: "number", placeholder: "4.9" },
   { name: "image", label: "Image path", type: "text", placeholder: "/assets/imgs/banner/1.jpg" },
   { name: "groupSize", label: "Group size", type: "text", placeholder: "2-8 travelers" },
@@ -28,8 +28,8 @@ const packageFields: AdminFormField[] = [
 export default function NewAdminPackagePage() {
   return (
     <AdminEntityForm
-      title="Create package"
-      description="Stage a new travel package. This form is demo-only for now and does not persist."
+      title="Create package listing"
+      description="Stage a new Lakshadweep package offer. This form is preview-only for now and does not persist."
       backHref="/admin/packages"
       fields={packageFields}
       initialValues={{

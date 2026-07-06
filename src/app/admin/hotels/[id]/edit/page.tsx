@@ -19,7 +19,7 @@ const hotelFields: AdminFormField[] = [
   },
   { name: "image", label: "Image path", type: "text" },
   { name: "rating", label: "Rating", type: "number" },
-  { name: "priceRange", label: "Price range", type: "text" },
+  { name: "priceRange", label: "Price range (INR)", type: "text" },
   {
     name: "status",
     label: "Status",
@@ -48,7 +48,7 @@ export default async function EditAdminHotelPage({
   return (
     <AdminEntityForm
       title={`Edit stay: ${item.name}`}
-      description="Refine the stay details used in package recommendations and planning."
+      description="Refine the stay details used in Lakshadweep package recommendations and partner planning."
       backHref="/admin/hotels"
       fields={hotelFields}
       initialValues={{

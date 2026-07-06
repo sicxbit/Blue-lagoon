@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
@@ -9,25 +9,12 @@ import { Card } from "@/components/ui/Card";
 import { Input } from "@/components/ui/Input";
 import { PageShell } from "@/components/ui/PageShell";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { packages } from "@/lib/data/packages";
+import { searchPublishedPackages } from "@/controllers/package.controller";
 import { publicNavigation } from "@/lib/navigation";
 
 export default function PackagesPage() {
   const [searchQuery, setSearchQuery] = useState("");
-
-  const filteredTours = useMemo(() => {
-    const normalized = searchQuery.trim().toLowerCase();
-
-    if (!normalized) {
-      return packages.filter((item) => item.status === "published");
-    }
-
-    return packages.filter(
-      (item) =>
-        item.status === "published" &&
-        [item.title, item.destination, item.description, item.status].join(" ").toLowerCase().includes(normalized)
-    );
-  }, [searchQuery]);
+  const filteredTours = searchPublishedPackages(searchQuery);
 
   return (
     <div className="bg-beach-app overflow-x-hidden">
@@ -40,27 +27,27 @@ export default function PackagesPage() {
           <PageShell width="wide" className="relative flex h-full items-end pb-12">
             <div className="max-w-3xl text-white">
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[var(--sun)]">Packages</p>
-              <h1 className="mt-4 font-display text-[clamp(3.2rem,6.4vw,5.6rem)] leading-[0.92] max-w-[860px]">Ocean-led itineraries with cleaner structure.</h1>
+              <h1 className="mt-4 max-w-[860px] font-display text-[clamp(3.2rem,6.4vw,5.6rem)] leading-[0.92]">Lakshadweep island journeys with trusted local partners.</h1>
               <p className="mt-4 max-w-2xl text-base leading-8 text-white/88">
-                Shared cards, consistent spacing, and structured local data now power the public package catalog.
+                Explore Blue Lagoon packages built around verified stays, local guides, and curated experiences across Lakshadweep.
               </p>
             </div>
           </PageShell>
         </div>
       </section>
 
-      <section className="mist-section scroll-wave-bg wave-divider-top section-space">
+      <section className="public-section-muted section-space">
         <PageShell className="section-gap">
-          <Card variant="default" className="space-y-6">
+          <Card variant="section" className="space-y-6">
             <SectionHeader
               eyebrow="Browse"
-              title="Find the right coastal escape."
-              description="Search by destination, package title, or status. Public cards use the same design system as the rest of the site."
+              title="Find the right island escape."
+              description="Search by Lakshadweep destination, package title, or status while comparing stays and guide-connected journeys."
             />
             <div className="grid gap-4 lg:grid-cols-[minmax(0,420px)_1fr] lg:items-center">
               <Input
                 label="Search packages"
-                placeholder="Try Maldives, Kerala, published..."
+                placeholder="Try Agatti, Bangaram, published..."
                 value={searchQuery}
                 onChange={(event) => setSearchQuery(event.target.value)}
               />

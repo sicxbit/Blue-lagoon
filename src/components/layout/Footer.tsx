@@ -19,12 +19,12 @@ export default function Footer() {
             <div className="space-y-5">
               <div className="inline-flex items-center gap-3 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white/90">
                 <Waves className="h-4 w-4 text-[var(--sun)]" />
-                Ocean-crafted journeys
+                Lakshadweep travel platform
               </div>
               <div className="space-y-3">
                 <h2 className="brand-logo brand-logo-inverse font-display text-4xl leading-none md:text-5xl">Blue Lagoon</h2>
                 <p className="max-w-xl text-sm leading-7 text-white/72 md:text-base">
-                  Premium coastal escapes, island stays, and local guide experiences designed to feel calm, polished, and unforgettable.
+                  Blue Lagoon connects tourists with verified Lakshadweep guides, curated stays, and island experiences through one premium discovery platform.
                 </p>
               </div>
               <div className="flex items-center gap-3">
@@ -52,8 +52,8 @@ export default function Footer() {
                 <Link href="/guide" className="wave-link wave-link-calm transition-smooth text-sm text-white/76 hover:text-[var(--mist)]">
                   Guide
                 </Link>
-                <Link href="/admin" className="wave-link wave-link-calm transition-smooth text-sm text-white/76 hover:text-[var(--mist)]">
-                  Admin
+                <Link href="/login" className="wave-link wave-link-calm transition-smooth text-sm text-white/76 hover:text-[var(--mist)]">
+                  Vendor Access
                 </Link>
               </div>
             </div>
@@ -71,13 +71,13 @@ export default function Footer() {
                 </p>
                 <p className="flex items-start gap-3">
                   <MapPin className="mt-0.5 h-4 w-4 text-[var(--aqua)]" />
-                  Panjim, Goa and partner hosts across the Indian Ocean and Mediterranean coast.
+                  Lakshadweep partner network with onboarding support for Agatti, Bangaram, Kadmat, Kavaratti, Minicoy, and nearby islands.
                 </p>
               </div>
             </div>
           </div>
           <div className="border-t border-white/10 px-6 py-4 text-sm text-white/56 md:px-10">
-            Copyright {new Date().getFullYear()} Blue Lagoon. Luxury beach journeys with local depth.
+            Copyright {new Date().getFullYear()} Blue Lagoon. Lakshadweep stays, guides, and island journeys in one trusted platform.
           </div>
         </div>
       </div>

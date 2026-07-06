@@ -11,7 +11,7 @@ import { publicNavigation } from "@/lib/navigation";
 const guideSteps = [
   {
     title: "Browse packages",
-    description: "Visitors start on the homepage or packages page to explore curated tropical getaways.",
+    description: "Visitors start on the homepage or packages page to explore Lakshadweep stays, guides, and island journeys.",
   },
   {
     title: "Open package details",
@@ -19,19 +19,19 @@ const guideSteps = [
   },
   {
     title: "Review stays and guides",
-    description: "Visitors can check recommended hotels and the dedicated guides page before making an inquiry.",
+    description: "Travelers can compare recommended stays and trusted local guide profiles before sending an inquiry.",
   },
   {
-    title: "Admin login",
-    description: "Admins sign in at `/login` using the local demo credentials to enter the protected workspace.",
+    title: "Vendor login",
+    description: "Partners sign in at `/login` using the local demo credentials to enter the protected vendor workspace.",
   },
   {
-    title: "Manage content",
-    description: "The admin area includes packages, hotels/stays, and guides with demo create/edit/delete actions.",
+    title: "Manage listings",
+    description: "The workspace includes packages, stays, and guides with preview create/edit/delete actions for partner-facing listings.",
   },
   {
     title: "Know the current limitation",
-    description: "Persistence is still future work, so admin changes are UI-only until a real API and database are added.",
+    description: "Persistence is still future work, so vendor workspace changes are UI-only until a real API and database are added.",
   },
 ];
 
@@ -45,8 +45,8 @@ export default function GuidePage() {
           <SectionHeader
             eyebrow="How to use"
             title="Blue Lagoon quick guide"
-            description="A short walkthrough for visitors and admins using the current beach-glass demo experience."
-            actions={<Link href="/login" className={buttonStyles({ variant: "secondary", size: "md" })}>Open admin login</Link>}
+            description="A short walkthrough for travelers and vendor partners using the current beach-glass platform preview."
+            actions={<Link href="/login" className={buttonStyles({ variant: "secondary", size: "md" })}>Open vendor login</Link>}
           />
 
           <Card variant="default" className="space-y-4">
@@ -54,10 +54,10 @@ export default function GuidePage() {
               Demo credentials
             </Badge>
             <p className="text-sm leading-7 text-[var(--text-main)]">
-              Admin email: <strong>admin@bluelagoon.com</strong>
+              Vendor email: <strong>admin@bluelagoon.com</strong>
             </p>
             <p className="text-sm leading-7 text-[var(--text-main)]">
-              Admin password: <strong>password</strong>
+              Vendor password: <strong>password</strong>
             </p>
           </Card>
 

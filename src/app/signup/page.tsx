@@ -50,17 +50,17 @@ export default function SignUpPage() {
       <div className="relative mx-auto flex min-h-[calc(100vh-4rem)] max-w-6xl items-center">
         <div className="grid w-full gap-6 lg:grid-cols-[0.95fr_1.05fr]">
           <Card variant="glass" className="space-y-6 text-white">
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[var(--sun)]">Travel partner onboarding</p>
-            <h1 className="text-on-dark-glass font-display text-5xl leading-none">Bring your travel business into the Blue Lagoon network.</h1>
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[var(--sun)]">Vendor onboarding</p>
+            <h1 className="text-on-dark-glass font-display text-5xl leading-none">Sign up as a Blue Lagoon vendor.</h1>
             <p className="text-on-dark-glass text-sm leading-7 text-white/92">
-              This page now matches the ocean theme and keeps the current lightweight signup behavior, ready for a future backend.
+              For Lakshadweep hotels, resorts, homestays, guides, and local experience providers who want to receive tourist leads through Blue Lagoon.
             </p>
           </Card>
 
           <Card variant="default" className="space-y-6">
             <div className="space-y-2">
-              <h2 className="font-display text-5xl leading-none text-[var(--ocean-deep)]">Create an account</h2>
-              <p className="text-sm leading-7 text-[var(--text-muted)]">Register your travel business interest and we&apos;ll follow up.</p>
+              <h2 className="font-display text-5xl leading-none text-[var(--ocean-deep)]">Join as vendor</h2>
+              <p className="text-sm leading-7 text-[var(--text-muted)]">Share your property or guide profile and we&apos;ll follow up about onboarding.</p>
             </div>
 
             <form onSubmit={handleRegister} className="grid gap-5 md:grid-cols-2">
@@ -75,7 +75,7 @@ export default function SignUpPage() {
                 label="Organization name"
                 value={organizationName}
                 onChange={(event) => setOrganizationName(event.target.value)}
-                placeholder="Blue Lagoon Retreats"
+                placeholder="Agatti Lagoon House"
                 required
               />
               <Input
@@ -123,10 +123,10 @@ export default function SignUpPage() {
 
               <div className="md:col-span-2 flex flex-col gap-4">
                 <Button type="submit" variant="primary" size="lg" fullWidth disabled={loading}>
-                  {loading ? "Submitting..." : "Register interest"}
+                  {loading ? "Submitting..." : "Submit vendor interest"}
                 </Button>
                 <p className="text-sm text-[var(--text-muted)]">
-                  Already have access?{" "}
+                  Already have vendor access?{" "}
                   <Link href="/login" className="font-semibold text-[var(--ocean-deep)] underline-offset-4 hover:underline">
                     Sign in
                   </Link>
@@ -154,7 +154,7 @@ export default function SignUpPage() {
             <div className="space-y-2">
               <h3 className="font-display text-4xl leading-none text-[var(--ocean-deep)]">Thank you.</h3>
               <p className="text-sm leading-7 text-[var(--text-muted)]">
-                Your registration interest has been captured in demo mode. TODO: connect this to real persistence and follow-up workflows.
+                Your vendor interest has been captured in this preview. TODO: connect this to real persistence and follow-up workflows.
               </p>
             </div>
             <Button variant="primary" size="lg" fullWidth onClick={() => setShowSuccess(false)}>

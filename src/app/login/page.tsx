@@ -61,22 +61,22 @@ export default function LoginPage() {
       <div className="relative mx-auto flex min-h-[calc(100vh-4rem)] max-w-6xl items-center">
         <div className="grid w-full gap-6 lg:grid-cols-[0.9fr_1.1fr]">
           <Card variant="glass" className="space-y-6 text-white">
-            <p className="text-on-dark-glass text-sm font-semibold uppercase tracking-[0.24em] text-[var(--sun)]">Admin access</p>
+            <p className="text-on-dark-glass text-sm font-semibold uppercase tracking-[0.24em] text-[var(--sun)]">Vendor access</p>
             <div className="space-y-3">
               <h1 className="text-on-dark-glass font-display text-5xl leading-none">Welcome back to Blue Lagoon.</h1>
               <p className="text-on-dark-glass max-w-md text-sm leading-7 text-white/92">
-                Use the existing cookie-based login to enter the new admin workspace for packages, stays, and guides.
+                Use the existing cookie-based login to enter the Blue Lagoon vendor workspace for stays, packages, and guide experiences.
               </p>
             </div>
             <div className="rounded-[24px] border border-white/16 bg-white/12 p-5 text-sm leading-7 text-white/88">
-              Demo admin login: <strong>admin@bluelagoon.com</strong> / <strong>password</strong>. Successful login routes to the protected admin section.
+              Vendor demo login: <strong>admin@bluelagoon.com</strong> / <strong>password</strong>. Successful login routes to the protected vendor workspace.
             </div>
           </Card>
 
           <Card variant="default" className="mx-auto w-full max-w-2xl space-y-6">
             <div className="space-y-2">
-              <h2 className="font-display text-5xl leading-none text-[var(--ocean-deep)]">Sign in</h2>
-              <p className="text-sm leading-7 text-[var(--text-muted)]">Enter your configured admin credentials to continue.</p>
+              <h2 className="font-display text-5xl leading-none text-[var(--ocean-deep)]">Vendor login</h2>
+              <p className="text-sm leading-7 text-[var(--text-muted)]">Enter your configured vendor credentials to continue.</p>
             </div>
 
             <form onSubmit={handleLogin} className="space-y-5">
@@ -117,14 +117,14 @@ export default function LoginPage() {
               ) : null}
 
               <Button type="submit" variant="primary" size="lg" fullWidth disabled={loading}>
-                {loading ? "Signing in..." : "Open admin"}
+                {loading ? "Signing in..." : "Open vendor workspace"}
               </Button>
             </form>
 
             <p className="text-sm text-[var(--text-muted)]">
-              Need a public overview instead?{" "}
-              <Link href="/" className="font-semibold text-[var(--ocean-deep)] underline-offset-4 hover:underline">
-                Return to the homepage
+              New partner?{" "}
+              <Link href="/signup" className="font-semibold text-[var(--ocean-deep)] underline-offset-4 hover:underline">
+                Sign up as vendor
               </Link>
               .
             </p>

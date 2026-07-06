@@ -1,79 +1,50 @@
-export interface PackageItineraryDay {
-  day: number;
-  title: string;
-  description: string;
-  activities?: string[];
-}
+import type { Package } from "@/models/package.model";
 
-export interface TravelPackage {
-  id: string;
-  title: string;
-  slug: string;
-  destination: string;
-  duration: string;
-  price: number;
-  rating: number;
-  reviews: number;
-  image: string;
-  groupSize: string;
-  featured: boolean;
-  status: "draft" | "published";
-  highlights: string[];
-  description: string;
-  itinerary: PackageItineraryDay[];
-  inclusions: string[];
-  exclusions: string[];
-  hotels: string[];
-  guides: string[];
-  gettingThere?: string;
-  accommodation?: string;
-  meals?: string;
-  importantNotes?: string[];
-}
+export type TravelPackage = Package;
 
-export const packages: TravelPackage[] = [
+export const packages: Package[] = [
   {
     id: "1",
-    title: "Maldives Lagoon Escape",
-    slug: "maldives-lagoon-escape",
-    destination: "Maldives",
-    duration: "7 Days",
-    price: 2499,
+    title: "Agatti Lagoon Escape",
+    slug: "agatti-lagoon-escape",
+    destination: "Agatti Island, Lakshadweep",
+    duration: "5 Days",
+    price: 74999,
     rating: 4.9,
     reviews: 234,
     image: "/assets/imgs/banner/1.jpg",
-    groupSize: "2-8 travelers",
+    groupSize: "2-6 travelers",
     featured: true,
     status: "published",
     highlights: [
-      "Overwater villa arrival",
-      "Private reef snorkeling session",
-      "Sunset sandbank dinner",
-      "Spa ritual for two",
+      "Agatti airport pickup and island host welcome",
+      "Lagoon snorkeling with a verified marine guide",
+      "Sunset sandbank dinner setup",
+      "Flexible leisure time with curated stay add-ons",
     ],
     description:
-      "A polished island itinerary designed around turquoise lagoons, gentle service, and generous time to unwind without rushing between activities.",
+      "A polished Lakshadweep itinerary designed around Agatti's lagoon edge, trusted local hosting, and enough breathing room to enjoy the island without rushing.",
     itinerary: [
-      { day: 1, title: "Arrival to the atoll", description: "Speedboat transfer, villa check-in, and a slow evening welcome dinner by the water." },
-      { day: 2, title: "Reef and lagoon day", description: "Private snorkeling with a marine guide followed by a floating breakfast and free time." },
-      { day: 3, title: "Island leisure", description: "Spa access, paddleboarding, and an optional sunset photography cruise." },
+      { day: 1, title: "Arrival in Agatti", description: "Airport pickup, partner stay check-in, and a slow evening by the lagoon." },
+      { day: 2, title: "Lagoon and reef day", description: "Guided snorkeling, reef briefing, and downtime with your island host." },
+      { day: 3, title: "Village and shoreline pacing", description: "Explore the island at an easy pace with optional beachside dining and photography stops." },
     ],
-    inclusions: ["Luxury stay", "Breakfast and dinner", "Airport transfer", "Guided reef excursion"],
-    exclusions: ["International flights", "Travel insurance", "Personal shopping"],
+    inclusions: ["Partner stay", "Breakfast and dinner", "Airport transfer", "Guided lagoon excursion"],
+    exclusions: ["Flights to Lakshadweep gateway city", "Travel insurance", "Personal expenses"],
     hotels: ["stay-reef-retreat"],
     guides: ["guide-amara"],
-    gettingThere: "Fly into Male and connect by coordinated speedboat transfer.",
-    accommodation: "Beach villa upgrade available on request.",
-    meals: "Daily breakfast, three curated dinners, and one sandbank experience.",
-    importantNotes: ["Best booked 45 days in advance during high season."],
+    gettingThere: "Fly into Agatti Airport and connect with a coordinated island pickup.",
+    accommodation: "Beachfront rooms and family suite upgrades are available on request.",
+    meals: "Daily breakfast, two hosted dinners, and one sandbank evening setup.",
+    importantNotes: ["Lakshadweep permits and ferry timings should be confirmed ahead of travel."],
   },
   {
     id: "2",
-    title: "Paros Sun & Sail Week",
-    slug: "paros-sun-sail-week",
-    destination: "Greece",
+    title: "Bangaram Island Retreat",
+    slug: "bangaram-island-retreat",
+    destination: "Bangaram Island, Lakshadweep",
     duration: "6 Days",
-    price: 1899,
+    price: 124999,
     rating: 4.8,
     reviews: 456,
     image: "/assets/imgs/banner/2.jpg",
@@ -81,33 +52,33 @@ export const packages: TravelPackage[] = [
     featured: true,
     status: "published",
     highlights: [
-      "Cycladic villa stay",
-      "Catamaran coastline cruise",
-      "Village tasting trail",
-      "Golden-hour harbor dining",
+      "Premium island stay partner",
+      "Private boat transfer coordination",
+      "Lagoon leisure and guided reef time",
+      "Golden-hour beach dining",
     ],
     description:
-      "A relaxed island-hopping style trip with clean design hotels, clear-water swims, and unhurried evenings through harbor towns.",
+      "A higher-end island retreat built around Bangaram's clear water, premium partner stays, and private lead-in service through Blue Lagoon.",
     itinerary: [
-      { day: 1, title: "Island check-in", description: "Settle into your sea-view villa and enjoy a terrace aperitif." },
-      { day: 2, title: "Sailing day", description: "Board a catamaran for quiet coves, swimming stops, and onboard lunch." },
-      { day: 3, title: "Village culture", description: "Explore local lanes, artisan shops, and sunset dining with your guide." },
+      { day: 1, title: "Island arrival", description: "Arrive through Agatti, transfer onward, and settle into your stay." },
+      { day: 2, title: "Open lagoon day", description: "Spend the day swimming, snorkeling, or relaxing with curated optional add-ons." },
+      { day: 3, title: "Partner-hosted experience", description: "Enjoy a guided island circuit and a sunset dinner arranged through local partners." },
     ],
-    inclusions: ["Boutique villa stay", "Breakfast", "Sailing day", "Private guide touchpoints"],
-    exclusions: ["Flights", "Alcoholic beverages", "Optional spa sessions"],
+    inclusions: ["Premium stay", "Breakfast", "Boat coordination", "Guide touchpoints"],
+    exclusions: ["Flights", "Spa sessions", "Personal shopping"],
     hotels: ["stay-sand-cove"],
     guides: ["guide-elias"],
-    gettingThere: "Arrive via Athens and regional ferry or flight connection.",
-    accommodation: "Private suites with sea-facing terraces.",
-    meals: "Breakfast daily plus one hosted lunch and one harbor dinner.",
+    gettingThere: "Arrival is coordinated via Agatti with onward island transfer support.",
+    accommodation: "Sea-facing rooms and private cottage upgrades are available.",
+    meals: "Breakfast daily plus one hosted dinner and one curated island lunch.",
   },
   {
     id: "3",
-    title: "Kerala Backwater Slow Journey",
-    slug: "kerala-backwater-slow-journey",
-    destination: "Kerala, India",
+    title: "Kadmat Dive & Stay",
+    slug: "kadmat-dive-stay",
+    destination: "Kadmat Island, Lakshadweep",
     duration: "5 Days",
-    price: 1399,
+    price: 89999,
     rating: 4.9,
     reviews: 312,
     image: "/assets/imgs/banner/3.jpg",
@@ -115,33 +86,33 @@ export const packages: TravelPackage[] = [
     featured: true,
     status: "published",
     highlights: [
-      "Premium houseboat stay",
-      "Canal-side village walk",
-      "Ayurveda-inspired wellness",
-      "Chef-led regional dinner",
+      "Dive resort stay partnership",
+      "Introductory scuba and snorkeling options",
+      "Guide-led lagoon safety briefing",
+      "Slow evening beach pacing",
     ],
     description:
-      "A gentle backwater itinerary with beautiful stays, local storytelling, and a calm pace that feels restorative from start to finish.",
+      "A dive-focused Lakshadweep package for travelers who want structured access to Kadmat's reefs, reliable stay options, and trusted local guidance.",
     itinerary: [
-      { day: 1, title: "Kochi arrival", description: "Transfer inland and settle into your waterfront hotel." },
-      { day: 2, title: "Houseboat embarkation", description: "Cruise the backwaters with lunch onboard and evening tea at anchor." },
-      { day: 3, title: "Culture and cuisine", description: "Meet local artisans and enjoy a chef-led dinner with regional flavors." },
+      { day: 1, title: "Arrival and briefing", description: "Check in, settle at the resort, and review the water schedule with your host." },
+      { day: 2, title: "Dive experience", description: "Join an optional introductory dive or guided snorkeling session depending on preference." },
+      { day: 3, title: "Island downtime", description: "Balance activity with recovery time, sunset walks, and curated local meals." },
     ],
-    inclusions: ["Transfers", "Houseboat night", "Breakfast", "Curated local experiences"],
-    exclusions: ["Flights", "Alcohol", "Optional wellness treatments"],
+    inclusions: ["Transfers", "Stay", "Breakfast", "Curated water activity coordination"],
+    exclusions: ["Flights", "Advanced dive certification upgrades", "Personal equipment purchases"],
     hotels: ["stay-lagoon-haven", "stay-sun-tide"],
     guides: ["guide-meera"],
-    gettingThere: "Fly into Kochi International Airport for a private road transfer.",
-    accommodation: "Combination of waterfront suites and a premium houseboat cabin.",
-    meals: "Breakfast daily, houseboat lunch, and one hosted tasting dinner.",
+    gettingThere: "Arrive via Lakshadweep gateway transfer and continue with partner coordination.",
+    accommodation: "Dive resort rooms and lagoon-view partner cottages.",
+    meals: "Breakfast daily plus one hosted seafood dinner.",
   },
   {
     id: "4",
-    title: "Bali Coral Coast Escape",
-    slug: "bali-coral-coast-escape",
-    destination: "Bali, Indonesia",
-    duration: "6 Days",
-    price: 1699,
+    title: "Kavaratti Culture Trail",
+    slug: "kavaratti-culture-trail",
+    destination: "Kavaratti, Lakshadweep",
+    duration: "4 Days",
+    price: 49999,
     rating: 4.7,
     reviews: 189,
     image: "/assets/imgs/banner/4.jpg",
@@ -149,33 +120,33 @@ export const packages: TravelPackage[] = [
     featured: false,
     status: "published",
     highlights: [
-      "Coastal design stay",
-      "Temple and beach pairing",
-      "Private harbor transfer",
+      "Town stay with island access",
+      "Culture-led walking route",
+      "Mosque and waterfront storytelling",
       "Flexible family pacing",
     ],
     description:
-      "A family-friendly ocean itinerary balancing cultural landmarks with comfortable seaside downtime.",
+      "A culture-first itinerary for travelers who want Lakshadweep beyond the postcard, with local hosts guiding the rhythm of Kavaratti.",
     itinerary: [
-      { day: 1, title: "Arrival and rest", description: "Airport pickup and a soft landing at your coastal suite." },
-      { day: 2, title: "Temple circuit", description: "Visit cliffside temples before a slow beach afternoon." },
-      { day: 3, title: "Island leisure", description: "Optional snorkeling or beach club lounge day." },
+      { day: 1, title: "Arrival and orientation", description: "Check in, meet your host, and ease into the island pace." },
+      { day: 2, title: "Culture trail", description: "Join a walking route through waterfront spaces, local food stops, and storytelling points." },
+      { day: 3, title: "Lagoon afternoon", description: "Pair town exploration with optional lagoon time or shoreline relaxation." },
     ],
-    inclusions: ["Transfers", "Hotel stay", "Breakfast", "Temple driver-guide"],
-    exclusions: ["Flights", "Lunches", "Optional excursions"],
+    inclusions: ["Transfers", "Stay", "Breakfast", "Culture host"],
+    exclusions: ["Flights", "Lunches", "Optional private boat rides"],
     hotels: ["stay-coral-view"],
     guides: ["guide-nyoman"],
-    gettingThere: "Fly into Denpasar with a private transfer waiting on arrival.",
-    accommodation: "Modern coastal suites near the water.",
-    meals: "Breakfast daily.",
+    gettingThere: "Arrivals are scheduled through Lakshadweep transfer support.",
+    accommodation: "Town-facing suites close to the waterfront.",
+    meals: "Breakfast daily and one hosted local tasting.",
   },
   {
     id: "5",
-    title: "Santorini Golden Hour Escape",
-    slug: "santorini-golden-hour-escape",
-    destination: "Santorini, Greece",
+    title: "Minicoy Lighthouse Journey",
+    slug: "minicoy-lighthouse-journey",
+    destination: "Minicoy Island, Lakshadweep",
     duration: "4 Days",
-    price: 1599,
+    price: 64999,
     rating: 4.9,
     reviews: 523,
     image: "/assets/imgs/banner/5.jpg",
@@ -183,29 +154,29 @@ export const packages: TravelPackage[] = [
     featured: false,
     status: "draft",
     highlights: [
-      "Clifftop stay",
-      "Sunset catamaran dinner",
-      "Wine estate tasting",
-      "Caldera photo session",
+      "Lighthouse-facing island stay",
+      "Village route with local guide",
+      "Sunset waterfront access",
+      "Curated food and photography stops",
     ],
     description:
-      "A romantic short break built around iconic viewpoints, thoughtful dining, and sea-facing suites.",
+      "A draft short-break itinerary designed around Minicoy's lighthouse, village culture, and a slower paced island stay.",
     itinerary: [
-      { day: 1, title: "Clifftop arrival", description: "Private transfer and terrace sunset welcome." },
-      { day: 2, title: "Caldera at sea", description: "Catamaran sailing with dinner service on the water." },
+      { day: 1, title: "Minicoy arrival", description: "Arrival coordination, stay check-in, and a sunset introduction to the island." },
+      { day: 2, title: "Village and lighthouse trail", description: "Explore the island with a local guide and pause at key heritage points." },
     ],
-    inclusions: ["Suite stay", "Breakfast", "Sunset sailing", "Winery visit"],
+    inclusions: ["Stay", "Breakfast", "Guide support", "Local transport"],
     exclusions: ["Flights", "Travel insurance", "Personal purchases"],
     hotels: ["stay-sand-cove"],
     guides: ["guide-elias"],
   },
   {
     id: "6",
-    title: "Goa Hidden Coves Weekend",
-    slug: "goa-hidden-coves-weekend",
-    destination: "Goa, India",
+    title: "Thinnakara Castaway Break",
+    slug: "thinnakara-castaway-break",
+    destination: "Thinnakara, Lakshadweep",
     duration: "3 Days",
-    price: 899,
+    price: 45999,
     rating: 4.6,
     reviews: 167,
     image: "/assets/imgs/banner/6.jpg",
@@ -213,19 +184,19 @@ export const packages: TravelPackage[] = [
     featured: false,
     status: "published",
     highlights: [
-      "Boutique coastal stay",
-      "Host-led food walk",
-      "Quiet beach mornings",
-      "Curated nightlife optionality",
+      "Remote island tented stay",
+      "Calm beach mornings",
+      "Lagoon picnic coordination",
+      "Short-break island pacing",
     ],
     description:
-      "A short, stylish coastal break with local hosting and just enough structure to keep things easy.",
+      "A short island reset for travelers who want a quieter Lakshadweep break with trusted local logistics already handled.",
     itinerary: [
-      { day: 1, title: "Check-in and coast", description: "Arrive, settle in, and explore a nearby hidden cove." },
-      { day: 2, title: "Food and shoreline", description: "Join a local tasting walk and optional evening music scene." },
+      { day: 1, title: "Check-in and coast", description: "Arrive, settle into the island stay, and take in the lagoonfront setting." },
+      { day: 2, title: "Beach and reef leisure", description: "Relax on the shoreline, add guided water time, or plan a curated picnic stop." },
     ],
-    inclusions: ["Stay", "Breakfast", "Food walk", "Host recommendations"],
-    exclusions: ["Flights", "Late-night transport", "Personal expenses"],
+    inclusions: ["Stay", "Breakfast", "Host recommendations", "Boat coordination"],
+    exclusions: ["Flights", "Special equipment rentals", "Personal expenses"],
     hotels: ["stay-sun-tide"],
     guides: ["guide-meera"],
   },

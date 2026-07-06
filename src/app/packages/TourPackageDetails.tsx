@@ -8,18 +8,21 @@ import { buttonStyles } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { PageShell } from "@/components/ui/PageShell";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { guides } from "@/lib/data/guides";
-import { hotels } from "@/lib/data/hotels";
+import { getPackageGuides } from "@/controllers/guide.controller";
+import { getPackageStays } from "@/controllers/stay.controller";
 import { publicNavigation } from "@/lib/navigation";
-import type { TourPackage } from "@/lib/tours";
+import type { Package } from "@/models/package.model";
+import { GuideCard } from "@/views/cards/GuideCard";
+import { StayCard } from "@/views/cards/StayCard";
+import { formatInr } from "@/services/currency.service";
 
 interface TourPackageDetailProps {
-  tour: TourPackage;
+  tour: Package;
 }
 
 export default function TourPackageDetail({ tour }: TourPackageDetailProps) {
-  const relatedHotels = hotels.filter((hotel) => tour.hotels.includes(hotel.id));
-  const relatedGuides = guides.filter((guide) => tour.guides.includes(guide.id));
+  const relatedHotels = getPackageStays(tour.hotels);
+  const relatedGuides = getPackageGuides(tour.guides);
 
   return (
     <div className="bg-beach-app overflow-x-hidden">
@@ -64,13 +67,13 @@ export default function TourPackageDetail({ tour }: TourPackageDetailProps) {
         </div>
       </section>
 
-      <section className="mist-section scroll-wave-bg wave-divider-top section-space">
+      <section className="public-section section-space">
         <PageShell className="grid gap-6 lg:grid-cols-[minmax(0,1.4fr)_380px] lg:items-start">
           <div className="space-y-6">
             <Card variant="default" className="space-y-5">
               <SectionHeader
                 eyebrow="Overview"
-                title="A refined trip brief"
+                title="Your Lakshadweep trip brief"
                 description={tour.description}
               />
               <div className="grid gap-3 md:grid-cols-2">
@@ -88,7 +91,7 @@ export default function TourPackageDetail({ tour }: TourPackageDetailProps) {
                 <SectionHeader
                   eyebrow="Itinerary"
                   title="How the days unfold"
-                  description="Structured local package data now feeds a cleaner trip timeline."
+                  description="Verified local partner data now feeds a cleaner Lakshadweep trip timeline."
                 />
                 <div className="space-y-5">
                   {tour.itinerary.map((day) => (
@@ -151,34 +154,10 @@ export default function TourPackageDetail({ tour }: TourPackageDetailProps) {
                 <SectionHeader
                   eyebrow="Recommended stays"
                   title="Matched stays for this journey"
-                  description="These stay suggestions come from the new local structured hotel data."
+                  description="These stay suggestions come from Blue Lagoon's Lakshadweep partner network."
                 />
                 <div className="grid gap-4">
-                  {relatedHotels.map((stay) => (
-                    <div key={stay.id} className="premium-card wave-card soft-hover grid gap-4 p-4 md:grid-cols-[140px_1fr]">
-                      <div className="relative h-32 overflow-hidden rounded-[20px]">
-                        <Image src={stay.image} alt={stay.name} fill className="object-cover" sizes="140px" />
-                      </div>
-                      <div className="space-y-3">
-                        <div className="flex flex-wrap items-center gap-2">
-                          <h3 className="text-lg font-semibold text-[var(--ocean-deep)]">{stay.name}</h3>
-                          <Badge variant="default">{stay.type}</Badge>
-                        </div>
-                        <p className="text-sm text-[var(--text-muted)]">{stay.location}</p>
-                        <p className="text-sm leading-7 text-[var(--text-muted)]">{stay.description}</p>
-                        <div className="flex flex-wrap gap-2">
-                          {stay.amenities.map((amenity) => (
-                            <span
-                              key={amenity}
-                              className="rounded-full bg-[rgba(8,126,139,0.08)] px-3 py-1 text-xs font-medium text-[var(--ocean-deep)]"
-                            >
-                              {amenity}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                  {relatedHotels.map((stay) => <StayCard key={stay.id} stay={stay} />)}
                 </div>
               </Card>
             ) : null}
@@ -187,34 +166,11 @@ export default function TourPackageDetail({ tour }: TourPackageDetailProps) {
               <Card variant="default" className="space-y-6">
                 <SectionHeader
                   eyebrow="Local guides"
-                  title="Hosts connected to this trip"
-                  description="Guide cards are hidden automatically when no guide data is attached."
+                  title="Verified hosts for this itinerary"
+                  description="Guide cards appear when a Lakshadweep host is attached to the package."
                 />
                 <div className="grid gap-4 md:grid-cols-2">
-                  {relatedGuides.map((guide) => (
-                    <div key={guide.id} className="premium-card wave-card soft-hover p-5">
-                      <div className="flex items-center gap-4">
-                        <div className="relative h-16 w-16 overflow-hidden rounded-full">
-                          <Image src={guide.image} alt={guide.name} fill className="object-cover" sizes="64px" />
-                        </div>
-                        <div>
-                          <h3 className="text-lg font-semibold text-[var(--ocean-deep)]">{guide.name}</h3>
-                          <p className="text-sm text-[var(--text-muted)]">{guide.location}</p>
-                        </div>
-                      </div>
-                      <p className="mt-4 text-sm leading-7 text-[var(--text-muted)]">{guide.bio}</p>
-                      <div className="mt-4 flex flex-wrap gap-2">
-                        {guide.specialties.map((specialty) => (
-                          <span
-                            key={specialty}
-                            className="rounded-full bg-[rgba(246,200,95,0.18)] px-3 py-1 text-xs font-medium text-[var(--ocean-deep)]"
-                          >
-                            {specialty}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
+                  {relatedGuides.map((guide) => <GuideCard key={guide.id} guide={guide} />)}
                 </div>
               </Card>
             ) : null}
@@ -224,8 +180,8 @@ export default function TourPackageDetail({ tour }: TourPackageDetailProps) {
             <Card variant="default" className="space-y-5">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--text-muted)]">From</p>
-                <p className="mt-2 text-4xl font-semibold text-[var(--ocean-deep)]">${tour.price.toLocaleString()}</p>
-                <p className="mt-2 text-sm text-[var(--text-muted)]">Per traveler, depending on season and stay selection.</p>
+                <p className="mt-2 text-4xl font-semibold text-[var(--ocean-deep)]">{formatInr(tour.price)}</p>
+                <p className="mt-2 text-sm text-[var(--text-muted)]">Per traveler, depending on season and partner availability.</p>
               </div>
               <div className="grid gap-4">
                 <label className="space-y-2">
@@ -273,7 +229,7 @@ export default function TourPackageDetail({ tour }: TourPackageDetailProps) {
                 </div>
               ) : (
                 <p className="text-sm leading-7 text-[var(--text-muted)]">
-                  This package is ready for inquiry. TODO: connect the request flow to a real booking endpoint.
+                  This package is ready for inquiry through Blue Lagoon. TODO: connect the request flow to a real booking endpoint.
                 </p>
               )}
             </Card>

@@ -44,15 +44,15 @@ export default function BookTour() {
         <div className="space-y-3">
           <div className="flex justify-between">
             <span className="w-1/2 text-start">Price</span>
-            <span className="w-1/2 text-end">$500</span>
+            <span className="w-1/2 text-end">₹50,000</span>
           </div>
           <div className="flex justify-between">
             <span className="w-1/2 text-start">Tax 15%</span>
-            <span className="w-1/2 text-end">$75</span>
+            <span className="w-1/2 text-end">₹7,500</span>
           </div>
           <div className="pt-2 flex justify-between">
             <span className="w-1/2 text-start">Total</span>
-            <span className="w-1/2 text-end">$575</span>
+            <span className="w-1/2 text-end">₹57,500</span>
           </div>
         </div>
       </div>

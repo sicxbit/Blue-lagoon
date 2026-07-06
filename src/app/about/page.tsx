@@ -15,8 +15,8 @@ export default function AboutPage() {
         <PageShell className="space-y-8">
           <SectionHeader
             eyebrow="About Blue Lagoon"
-            title="A premium ocean travel brand with a calmer visual system."
-            description="This pass keeps the beach-and-luxury feel intact while making typography, spacing, cards, and brand color usage more consistent across the site."
+            title="Lakshadweep stays, guides, and island journeys in one trusted platform."
+            description="Blue Lagoon is being shaped as a premium marketplace that connects tourists with verified local hospitality partners across Lakshadweep."
           />
 
           <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
@@ -30,13 +30,13 @@ export default function AboutPage() {
               <Card variant="default" className="space-y-4">
                 <h2 className="font-display text-4xl leading-none text-[var(--ocean-deep)]">Who we are</h2>
                 <p className="text-sm leading-8 text-[var(--text-muted)]">
-                  Blue Lagoon is built for travelers who want a luxury beach mood without sacrificing clarity. We shape polished escapes around shoreline stays, thoughtful pacing, and strong local context.
+                  Blue Lagoon helps travelers discover trusted guides, curated stays, and island experiences across Lakshadweep through one polished discovery layer.
                 </p>
               </Card>
               <Card variant="default" className="space-y-4">
                 <h2 className="font-display text-4xl leading-none text-[var(--ocean-deep)]">Our mission</h2>
                 <p className="text-sm leading-8 text-[var(--text-muted)]">
-                  Deliver calm, premium planning experiences on both the public site and the admin side, so curated travel content can scale cleanly before a backend arrives.
+                  Build an investor-ready Lakshadweep tourism platform that gives tourists more confidence and gives local vendors a better path to qualified leads.
                 </p>
               </Card>
             </div>
@@ -55,16 +55,16 @@ export default function AboutPage() {
           <div className="grid gap-6 md:grid-cols-3">
             {[
               {
-                title: "Shared theme tokens",
-                description: "Global ocean, aqua, sand, sun, and mist variables now anchor the visual system.",
+                title: "Lakshadweep-exclusive focus",
+                description: "All public discovery is centered on island stays, guides, and experiences across Lakshadweep.",
               },
               {
-                title: "Reusable components",
-                description: "Buttons, cards, inputs, badges, section headers, and shells now keep page styling consistent.",
+                title: "Reusable platform surfaces",
+                description: "Buttons, cards, inputs, badges, section headers, and shells keep the product presentation polished across the site.",
               },
               {
-                title: "Admin foundation",
-                description: "The site now includes a protected admin shell for packages, stays, and guides using the existing cookie flow.",
+                title: "Vendor workspace",
+                description: "The protected `/admin` route remains in place technically, while visible UI is positioned as a vendor-facing partner workspace.",
               },
             ].map((item) => (
               <Card key={item.title} variant="default" className="space-y-4">

@@ -1,9 +1,10 @@
-import { getPackageById, packages, type TravelPackage } from "@/lib/data/packages";
+import type { Package } from "@/models/package.model";
+import { findPackageById, getPackages } from "@/services/package.service";
 
-export type TourPackage = TravelPackage;
+export type TourPackage = Package;
 
-export const tours = packages;
+export const tours = getPackages();
 
 export function getTourById(id: string): TourPackage | undefined {
-  return getPackageById(id);
+  return findPackageById(id);
 }

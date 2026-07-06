@@ -1,64 +1,54 @@
-export interface LocalGuide {
-  id: string;
-  name: string;
-  location: string;
-  languages: string[];
-  image: string;
-  rating: number;
-  bio: string;
-  specialties: string[];
-  phone?: string;
-  email?: string;
-  status: "draft" | "published";
-}
+import type { Guide } from "@/models/guide.model";
 
-export const guides: LocalGuide[] = [
+export type LocalGuide = Guide;
+
+export const guides: Guide[] = [
   {
     id: "guide-amara",
-    name: "Amara Silva",
-    location: "Maldives",
-    languages: ["English", "Dhivehi"],
+    name: "Amina Koya",
+    location: "Agatti, Lakshadweep",
+    languages: ["English", "Malayalam", "Jasari"],
     image: "/assets/imgs/vendor/G1.png",
     rating: 4.9,
-    bio: "Marine-naturalist guide focused on reef life, private island experiences, and low-stress luxury pacing.",
-    specialties: ["Snorkeling routes", "Couples itineraries", "Sunset sandbanks"],
-    phone: "+960 555 0148",
+    bio: "A local marine guide who helps Blue Lagoon travelers navigate Agatti's reefs, sandbanks, and soft-paced island days with confidence.",
+    specialties: ["Snorkeling routes", "Lagoon walks", "Sunset sandbanks"],
+    phone: "+91 98470 11223",
     email: "amara@bluelagoon.travel",
     status: "published",
   },
   {
     id: "guide-elias",
-    name: "Elias Petrou",
-    location: "Greek Islands",
-    languages: ["English", "Greek", "Italian"],
+    name: "Rashid Latheef",
+    location: "Bangaram and Thinnakara, Lakshadweep",
+    languages: ["English", "Malayalam", "Hindi"],
     image: "/assets/imgs/vendor/G2.png",
     rating: 4.8,
-    bio: "Island-hopping specialist who blends village dining, sailing days, and boutique stays.",
-    specialties: ["Harbor dining", "Catamaran days", "Photo stops"],
+    bio: "An island host focused on premium beach setups, shoreline logistics, and helping visitors move smoothly between partner stays.",
+    specialties: ["Island transfers", "Photo stops", "Couples itineraries"],
     email: "elias@bluelagoon.travel",
     status: "published",
   },
   {
     id: "guide-meera",
-    name: "Meera Nair",
-    location: "Kerala",
+    name: "Shaina Ali",
+    location: "Kadmat, Lakshadweep",
     languages: ["English", "Hindi", "Malayalam"],
     image: "/assets/imgs/vendor/G3.png",
     rating: 4.9,
-    bio: "Backwater storyteller and culinary host with a strong focus on slow-travel experiences.",
-    specialties: ["Backwater routes", "Ayurveda stays", "Cuisine tastings"],
+    bio: "A dive-and-culture host who helps travelers balance reef experiences with the slower rhythm of Kadmat island life.",
+    specialties: ["Scuba guidance", "Lagoon safety", "Local food experiences"],
     phone: "+91 90000 11223",
     status: "published",
   },
   {
     id: "guide-nyoman",
-    name: "Nyoman Putra",
-    location: "Bali",
-    languages: ["English", "Bahasa Indonesia"],
+    name: "Nawaz Koya",
+    location: "Kavaratti and Minicoy, Lakshadweep",
+    languages: ["English", "Malayalam", "Tamil"],
     image: "/assets/imgs/vendor/G4.png",
     rating: 4.7,
-    bio: "Local island host for beach clubs, temple circuits, and easy family-friendly pacing.",
-    specialties: ["Family travel", "Temple visits", "Private transfers"],
+    bio: "A culture-focused island guide helping travelers understand waterfront life, village routes, and local hospitality traditions.",
+    specialties: ["Island culture", "Fishing village trails", "Family travel"],
     status: "draft",
   },
 ];

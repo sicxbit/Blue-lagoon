@@ -2,44 +2,22 @@ import Link from "next/link";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { buttonStyles } from "@/components/ui/Button";
-import { guides } from "@/lib/data/guides";
-import { hotels } from "@/lib/data/hotels";
-import { packages } from "@/lib/data/packages";
+import { getVendorDashboardOverview } from "@/controllers/vendor.controller";
+import { formatInr } from "@/services/currency.service";
 
-const stats = [
-  {
-    label: "Total Packages",
-    value: packages.length,
-    helper: `${packages.filter((item) => item.status === "published").length} published`,
-  },
-  {
-    label: "Hotels / Stays",
-    value: hotels.length,
-    helper: `${hotels.filter((item) => item.status === "published").length} published`,
-  },
-  {
-    label: "Guides",
-    value: guides.length,
-    helper: `${guides.filter((item) => item.status === "published").length} published`,
-  },
-  {
-    label: "Featured Packages",
-    value: packages.filter((item) => item.featured).length,
-    helper: "Ocean hero placements",
-  },
-];
+const { recentPackages, stats } = getVendorDashboardOverview();
 
 export default function AdminDashboardPage() {
   return (
     <div className="space-y-6">
       <Card variant="admin" className="space-y-4">
           <Badge variant="accent" className="sun-badge">
-            Demo dashboard
+            Vendor preview
           </Badge>
         <div className="space-y-2">
           <h2 className="font-display text-4xl leading-none text-[var(--ocean-deep)]">Content overview</h2>
           <p className="max-w-2xl text-sm leading-7 text-[var(--text-muted)]">
-            Use this lightweight admin foundation to stage package, hotel, and guide changes before wiring a real API.
+            Use this lightweight vendor workspace to stage package offers, stay listings, and guide experiences before wiring a real API.
           </p>
         </div>
         <div className="flex flex-wrap gap-3">
@@ -76,16 +54,16 @@ export default function AdminDashboardPage() {
         </Card>
 
         <Card variant="admin" className="space-y-4 xl:col-span-2">
-          <h3 className="text-xl font-semibold text-[var(--ocean-deep)]">Recently staged content</h3>
+          <h3 className="text-xl font-semibold text-[var(--ocean-deep)]">Recently staged listings</h3>
           <div className="grid gap-4 md:grid-cols-2">
-            {packages.slice(0, 4).map((item) => (
+            {recentPackages.map((item) => (
               <div key={item.id} className="glass-panel soft-hover rounded-2xl border border-[var(--border-soft)] p-4">
                 <div className="flex items-center justify-between gap-3">
                   <h4 className="font-semibold text-[var(--ocean-deep)]">{item.title}</h4>
                   <Badge variant={item.status === "published" ? "success" : "warning"}>{item.status}</Badge>
                 </div>
                 <p className="mt-2 text-sm text-[var(--text-muted)]">
-                  {item.destination} | {item.duration} | ${item.price.toLocaleString()}
+                  {item.destination} | {item.duration} | {formatInr(item.price)}
                 </p>
               </div>
             ))}

@@ -121,7 +121,7 @@ export function AdminCollectionTable({
                   <Button
                     variant="danger"
                     size="sm"
-                    onClick={() => setNotice(`Delete for "${row.title}" is a demo action only. TODO: connect this to a real API delete flow.`)}
+                    onClick={() => setNotice(`Delete for "${row.title}" is a preview action only. TODO: connect this to a real API delete flow.`)}
                   >
                     <Trash2 className="mr-2 h-4 w-4" />
                     Delete
