@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Map, Hotel, Users, ArrowUpRight } from "lucide-react";
+import { LayoutDashboard, Map, Hotel, Users, ArrowUpRight, UserPlus } from "lucide-react";
 import { isPathActive } from "@/controllers/navigation.controller";
 import { adminNavigation } from "@/lib/navigation";
 import { cn } from "@/lib/cn";
 
 const icons = {
   "/admin": LayoutDashboard,
+  "/admin/vendor-requests": UserPlus,
   "/admin/packages": Map,
   "/admin/hotels": Hotel,
   "/admin/guides": Users,

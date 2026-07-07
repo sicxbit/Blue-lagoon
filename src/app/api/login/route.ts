@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { ONE_DAY_SECONDS, createAdminSessionToken, isValidAdminCredentials } from "@/services/auth.service";
+import { ONE_DAY_SECONDS, authenticatePortalCredentials, createSessionToken } from "@/services/auth.service";
 
 export async function POST(req: Request) {
   try {
@@ -12,11 +12,13 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Invalid email or password" }, { status: 401 });
     }
 
-    if (!isValidAdminCredentials(email, password)) {
+    const session = authenticatePortalCredentials(email, password);
+
+    if (!session) {
       return NextResponse.json({ error: "Invalid email or password" }, { status: 401 });
     }
 
-    const token = createAdminSessionToken(email);
+    const token = createSessionToken(session);
     const response = NextResponse.json({ ok: true });
     response.cookies.set({
       name: "cc_session",

@@ -94,7 +94,7 @@ export default function Home() {
             description="Blue Lagoon brings together verified guides, curated stays, and island-first itineraries across Lakshadweep in one premium marketplace experience."
             actions={<Link href="/packages" className={buttonStyles({ variant: "secondary", size: "md" })}>See all packages</Link>}
           />
-          <div className="stagger-children grid gap-6 lg:grid-cols-3">
+          <div className="stagger-children grid items-stretch gap-6 lg:grid-cols-3">
             {featuredPackages.map((tour) => (
               <TourPackageCard key={tour.id} tour={tour} />
             ))}

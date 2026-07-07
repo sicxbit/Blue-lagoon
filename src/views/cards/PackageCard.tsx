@@ -13,7 +13,7 @@ interface PackageCardProps {
 
 export function PackageCard({ tour }: PackageCardProps) {
   return (
-    <Card variant="premium" className="premium-card wave-card soft-hover ocean-shimmer p-0">
+    <Card variant="premium" className="premium-card wave-card soft-hover ocean-shimmer flex h-full flex-col p-0">
       <div className="relative h-64 overflow-hidden">
         <Image
           src={tour.image}
@@ -25,7 +25,12 @@ export function PackageCard({ tour }: PackageCardProps) {
         <div className="hero-overlay absolute inset-0" />
         <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[rgba(3,59,74,0.42)] via-[rgba(3,59,74,0.08)] to-transparent" />
         <div className="absolute left-5 right-5 top-5 flex items-start justify-between gap-3">
-          <Badge variant="accent" className="shadow-[0_10px_24px_rgba(6,59,76,0.16)]">{tour.destination}</Badge>
+          <Badge
+            variant="accent"
+            className="shadow-[0_10px_24px_rgba(6,59,76,0.16)] text-white [text-shadow:0_1px_2px_rgba(6,59,76,0.24)]"
+          >
+            {tour.destination}
+          </Badge>
           <div className="rounded-full border border-white/55 bg-[rgba(255,255,255,0.88)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--ocean-deep)] backdrop-blur-md">
             {tour.status}
           </div>
@@ -41,7 +46,7 @@ export function PackageCard({ tour }: PackageCardProps) {
         </div>
       </div>
 
-      <div className="premium-card-surface space-y-6 px-6 pb-6 pt-5">
+      <div className="premium-card-surface flex flex-1 flex-col space-y-6 px-6 pb-6 pt-5">
         <div className="grid gap-3 text-sm text-[var(--text-muted)] sm:grid-cols-3">
           <p className="flex items-center gap-2 rounded-full bg-white/46 px-3 py-2">
             <Clock3 className="h-4 w-4 text-[var(--ocean)]" />
@@ -59,7 +64,7 @@ export function PackageCard({ tour }: PackageCardProps) {
 
         <p className="text-sm leading-7 text-[var(--text-muted)]">{tour.description}</p>
 
-        <div className="flex flex-wrap gap-2.5">
+        <div className="flex min-h-[5.75rem] flex-wrap content-start gap-2.5">
           {tour.highlights.slice(0, 3).map((highlight) => (
             <p
               key={highlight}
@@ -71,7 +76,7 @@ export function PackageCard({ tour }: PackageCardProps) {
         </div>
 
         <div
-          className="price-pill-box rounded-[28px] flex flex-col gap-4 p-4 sm:flex-row sm:items-center sm:justify-between"
+          className="price-pill-box mt-auto flex flex-col gap-4 rounded-[28px] p-4 sm:flex-row sm:items-center sm:justify-between"
           style={{ borderRadius: "28px" }}
         >
           <div>

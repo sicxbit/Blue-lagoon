@@ -12,7 +12,7 @@ export function StayCard({ stay, compact = false }: StayCardProps) {
     <div
       className={`premium-card wave-card soft-hover ${compact ? "flex gap-4 p-4" : "grid gap-4 p-4 md:grid-cols-[140px_1fr]"}`}
     >
-      <div className={`relative overflow-hidden rounded-[20px] ${compact ? "h-24 w-24" : "h-32"}`}>
+      <div className={`relative overflow-hidden rounded-[22px] ${compact ? "h-24 w-24 shrink-0 self-start" : "h-32"}`}>
         <Image src={stay.image} alt={stay.name} fill className="object-cover" sizes={compact ? "96px" : "140px"} />
       </div>
       <div className="min-w-0 space-y-3">

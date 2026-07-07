@@ -13,6 +13,7 @@ export const publicNavigation: NavItem[] = [
 
 export const adminNavigation: NavItem[] = [
   { label: "Dashboard", href: "/admin" },
+  { label: "Vendor Requests", href: "/admin/vendor-requests" },
   { label: "Packages", href: "/admin/packages" },
   { label: "Stays", href: "/admin/hotels" },
   { label: "Guides", href: "/admin/guides" },

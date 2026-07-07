@@ -69,14 +69,14 @@ export default function LoginPage() {
               </p>
             </div>
             <div className="rounded-[24px] border border-white/16 bg-white/12 p-5 text-sm leading-7 text-white/88">
-              Vendor demo login: <strong>admin@bluelagoon.com</strong> / <strong>password</strong>. Successful login routes to the protected vendor workspace.
+              Admin demo login: <strong>admin@bluelagoon.com</strong> / <strong>password</strong>. Approved vendors can also sign in here using the email and password from their Join as vendor request.
             </div>
           </Card>
 
           <Card variant="default" className="mx-auto w-full max-w-2xl space-y-6">
             <div className="space-y-2">
               <h2 className="font-display text-5xl leading-none text-[var(--ocean-deep)]">Vendor login</h2>
-              <p className="text-sm leading-7 text-[var(--text-muted)]">Enter your configured vendor credentials to continue.</p>
+              <p className="text-sm leading-7 text-[var(--text-muted)]">Enter your approved vendor credentials or the admin demo login to continue.</p>
             </div>
 
             <form onSubmit={handleLogin} className="space-y-5">

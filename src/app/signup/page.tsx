@@ -25,8 +25,26 @@ export default function SignUpPage() {
     setError("");
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      // TODO: connect signup interest capture to a real CRM or onboarding API.
+      const response = await fetch("/api/vendor-requests", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ownerName,
+          organizationName,
+          mobileNumber,
+          email,
+          password,
+        }),
+      });
+
+      const data = (await response.json()) as { error?: string };
+
+      if (!response.ok) {
+        throw new Error(data.error ?? "Registration failed");
+      }
+
       setShowSuccess(true);
       setOwnerName("");
       setOrganizationName("");
@@ -154,7 +172,7 @@ export default function SignUpPage() {
             <div className="space-y-2">
               <h3 className="font-display text-4xl leading-none text-[var(--ocean-deep)]">Thank you.</h3>
               <p className="text-sm leading-7 text-[var(--text-muted)]">
-                Your vendor interest has been captured in this preview. TODO: connect this to real persistence and follow-up workflows.
+                Your Join as vendor request is now pending admin review. Once approved, you can sign in with the same email and password.
               </p>
             </div>
             <Button variant="primary" size="lg" fullWidth onClick={() => setShowSuccess(false)}>

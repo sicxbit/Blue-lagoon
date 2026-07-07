@@ -1,9 +1,16 @@
 import crypto from "node:crypto";
+import { authenticateApprovedVendor } from "@/services/vendor-request.service";
 
-export interface AdminSession {
+export type PortalRole = "admin" | "vendor";
+
+export interface PortalSession {
   email: string;
+  role: PortalRole;
+  name?: string;
   iat: number;
 }
+
+export type AdminSession = PortalSession;
 
 export const ONE_DAY_SECONDS = 60 * 60 * 24;
 
@@ -28,17 +35,47 @@ function getSessionSecret() {
 
 export function isValidAdminCredentials(email: string, password: string) {
   const adminCredentials = getAdminCredentials();
-  return email === adminCredentials.email && password === adminCredentials.password;
+  return email.trim().toLowerCase() === adminCredentials.email.trim().toLowerCase() && password === adminCredentials.password;
 }
 
-export function createAdminSessionToken(email: string) {
-  const payload = JSON.stringify({ email, iat: Date.now() });
+export function authenticatePortalCredentials(email: string, password: string): Omit<PortalSession, "iat"> | null {
+  const normalizedEmail = email.trim().toLowerCase();
+
+  if (isValidAdminCredentials(normalizedEmail, password)) {
+    return {
+      email: getAdminCredentials().email,
+      role: "admin",
+    };
+  }
+
+  const approvedVendor = authenticateApprovedVendor(normalizedEmail, password);
+
+  if (!approvedVendor) {
+    return null;
+  }
+
+  return {
+    email: approvedVendor.email,
+    role: "vendor",
+    name: approvedVendor.ownerName,
+  };
+}
+
+export function createSessionToken(session: Omit<PortalSession, "iat">) {
+  const payload = JSON.stringify({ ...session, iat: Date.now() });
   const payloadBase64 = Buffer.from(payload).toString("base64url");
   const signature = signSession(payloadBase64, getSessionSecret());
   return `${payloadBase64}.${signature}`;
 }
 
-export function parseAdminSessionToken(token?: string | null): AdminSession | null {
+export function createAdminSessionToken(email: string) {
+  return createSessionToken({
+    email,
+    role: "admin",
+  });
+}
+
+export function parseSessionToken(token?: string | null): PortalSession | null {
   if (!token) {
     return null;
   }
@@ -56,9 +93,9 @@ export function parseAdminSessionToken(token?: string | null): AdminSession | nu
   }
 
   try {
-    const payload = JSON.parse(Buffer.from(payloadBase64, "base64url").toString("utf8")) as AdminSession;
+    const payload = JSON.parse(Buffer.from(payloadBase64, "base64url").toString("utf8")) as PortalSession;
 
-    if (!payload.email || typeof payload.iat !== "number") {
+    if (!payload.email || (payload.role !== "admin" && payload.role !== "vendor") || typeof payload.iat !== "number") {
       return null;
     }
 
@@ -67,3 +104,5 @@ export function parseAdminSessionToken(token?: string | null): AdminSession | nu
     return null;
   }
 }
+
+export const parseAdminSessionToken = parseSessionToken;

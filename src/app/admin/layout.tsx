@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
 import { AdminSidebar } from "@/components/admin/AdminSidebar";
 import { AdminLogoutButton } from "@/components/admin/AdminLogoutButton";
-import { requireAdminSession } from "@/lib/auth";
+import { requirePortalSession } from "@/lib/auth";
 
 export default async function AdminLayout({ children }: { children: ReactNode }) {
-  const session = await requireAdminSession();
+  const session = await requirePortalSession();
 
   return (
     <div className="bg-beach-app min-h-screen">
@@ -17,11 +17,16 @@ export default async function AdminLayout({ children }: { children: ReactNode })
           <header className="glass-panel-strong page-enter flex flex-col gap-4 rounded-[32px] px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[var(--ocean)]">Vendor control center</p>
-              <h1 className="mt-1 font-display text-4xl leading-none text-[var(--ocean-deep)]">Vendor Workspace</h1>
+              <h1 className="mt-1 font-display text-4xl leading-none text-[var(--ocean-deep)]">
+                {session.role === "admin" ? "Admin Workspace" : "Vendor Workspace"}
+              </h1>
             </div>
             <div className="flex items-center gap-4">
               <div className="glass-panel rounded-2xl px-4 py-2 text-sm text-[var(--text-main)]">
                 Signed in as <span className="font-semibold text-[var(--ocean-deep)]">{session.email}</span>
+                <span className="ml-2 rounded-full bg-[rgba(8,126,139,0.12)] px-2.5 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--ocean-deep)]">
+                  {session.role}
+                </span>
               </div>
               <AdminLogoutButton />
             </div>
