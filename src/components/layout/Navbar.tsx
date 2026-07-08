@@ -94,7 +94,7 @@ export default function Navbar({ navigationItems, mode = "solid" }: NavbarProps)
       </div>
 
       {menuOpen ? (
-        <div className="glass-panel-strong fade-in mx-auto mt-3 max-w-7xl rounded-[28px] p-4 md:hidden">
+        <div className="glass-panel-strong slide-up mx-auto mt-3 max-w-7xl rounded-[28px] p-4 md:hidden">
           <div className="flex flex-col gap-2">
             {navigationItems.map((item) => {
               const active = isPathActive(pathname, item.href);

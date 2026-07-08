@@ -25,6 +25,9 @@
   --shadow-soft: 0 18px 48px rgba(6, 59, 76, 0.12);
   --shadow-strong: 0 24px 60px rgba(6, 59, 76, 0.18);
   --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-base: 320ms;
+  --motion-emphasis: 420ms;
+  --motion-wave: 520ms;
 }
 
 @theme inline {
@@ -106,47 +109,52 @@ textarea {
 }
 
 .transition-smooth {
-  transition-duration: 240ms;
+  transition-duration: var(--motion-base);
   transition-timing-function: var(--ease-smooth);
 }
 
 .page-enter {
-  animation: page-enter 320ms var(--ease-smooth) both;
+  animation: page-enter var(--motion-emphasis) var(--ease-smooth) both;
 }
 
 .fade-in {
-  animation: fade-in 240ms var(--ease-smooth) both;
+  animation: fade-in var(--motion-base) var(--ease-smooth) both;
 }
 
 .slide-up {
-  animation: slide-up 320ms var(--ease-smooth) both;
+  animation: slide-up var(--motion-emphasis) var(--ease-smooth) both;
 }
 
 .stagger-children > * {
-  animation: page-enter 320ms var(--ease-smooth) both;
+  animation: page-enter var(--motion-emphasis) var(--ease-smooth) both;
 }
 
 .stagger-children > *:nth-child(2) {
-  animation-delay: 40ms;
+  animation-delay: 70ms;
 }
 
 .stagger-children > *:nth-child(3) {
-  animation-delay: 80ms;
+  animation-delay: 140ms;
 }
 
 .soft-hover {
   transition:
-    transform 240ms var(--ease-smooth),
-    box-shadow 240ms var(--ease-smooth),
-    filter 240ms var(--ease-smooth),
-    background-color 240ms var(--ease-smooth),
-    border-color 240ms var(--ease-smooth),
-    color 240ms var(--ease-smooth),
-    opacity 240ms var(--ease-smooth);
+    transform var(--motion-base) var(--ease-smooth),
+    box-shadow var(--motion-base) var(--ease-smooth),
+    filter var(--motion-base) var(--ease-smooth),
+    background-color var(--motion-base) var(--ease-smooth),
+    border-color var(--motion-base) var(--ease-smooth),
+    color var(--motion-base) var(--ease-smooth),
+    opacity var(--motion-base) var(--ease-smooth);
 }
 
 .soft-hover:hover {
   transform: translateY(-2px);
+}
+
+.soft-hover:focus-visible,
+.soft-hover:active {
+  transform: translateY(-1px);
 }
 
 .pressable:active {
@@ -332,18 +340,26 @@ textarea {
   transform: translate3d(-6%, 24px, 0);
   opacity: 0;
   transition:
-    transform 280ms var(--ease-smooth),
-    opacity 280ms var(--ease-smooth),
-    background-position 380ms var(--ease-smooth);
+    transform var(--motion-base) var(--ease-smooth),
+    opacity var(--motion-base) var(--ease-smooth),
+    background-position var(--motion-wave) var(--ease-smooth);
   background-size: 150% 100%;
   background-position: 0% 50%;
   pointer-events: none;
 }
 
 .wave-hover:hover::before,
+.wave-hover:focus-visible::before,
+.wave-hover:active::before,
 .wave-button:hover::before,
+.wave-button:focus-visible::before,
+.wave-button:active::before,
 .wave-card:hover::before,
-.wave-link:hover::before {
+.wave-card:focus-visible::before,
+.wave-card:active::before,
+.wave-link:hover::before,
+.wave-link:focus-visible::before,
+.wave-link:active::before {
   transform: translateY(0);
   opacity: 1;
   background-position: 100% 50%;
@@ -381,12 +397,14 @@ textarea {
   transform-origin: center;
   opacity: 0;
   transition:
-    transform 240ms var(--ease-smooth),
-    opacity 240ms var(--ease-smooth),
-    background-position 420ms var(--ease-smooth);
+    transform var(--motion-base) var(--ease-smooth),
+    opacity var(--motion-base) var(--ease-smooth),
+    background-position var(--motion-wave) var(--ease-smooth);
 }
 
 .wave-link:hover::after,
+.wave-link:focus-visible::after,
+.wave-link:active::after,
 .wave-link[aria-current="page"]::after {
   transform: translateY(0) scaleX(1);
   opacity: 1;
@@ -401,8 +419,16 @@ textarea {
 }
 
 .wave-link-calm:hover::after,
+.wave-link-calm:focus-visible::after,
+.wave-link-calm:active::after,
 .wave-link-calm[aria-current="page"]::after {
   opacity: 0.9;
+}
+
+.footer-link {
+  justify-self: start;
+  display: inline-flex;
+  width: fit-content;
 }
 
 .ocean-button {
@@ -517,5 +543,18 @@ textarea {
     transition: none !important;
     transform: none !important;
     background-position: 0 50% !important;
+  }
+}
+
+@media (hover: none) {
+  .soft-hover:hover {
+    transform: none;
+  }
+
+  .wave-hover:active::before,
+  .wave-button:active::before,
+  .wave-card:active::before,
+  .wave-link:active::before {
+    opacity: 0.9;
   }
 }

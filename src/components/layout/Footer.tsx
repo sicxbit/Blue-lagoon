@@ -45,14 +45,18 @@ export default function Footer() {
               <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--sun)]">Navigate</h3>
               <div className="grid gap-3">
                 {publicNavigation.map((item) => (
-                  <Link key={item.href} href={item.href} className="wave-link wave-link-calm transition-smooth text-sm text-white/76 hover:text-[var(--mist)]">
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="footer-link wave-link wave-link-calm transition-smooth text-sm text-white/76 hover:text-[var(--mist)]"
+                  >
                     {item.label}
                   </Link>
                 ))}
-                <Link href="/guide" className="wave-link wave-link-calm transition-smooth text-sm text-white/76 hover:text-[var(--mist)]">
+                <Link href="/guide" className="footer-link wave-link wave-link-calm transition-smooth text-sm text-white/76 hover:text-[var(--mist)]">
                   Guide
                 </Link>
-                <Link href="/login" className="wave-link wave-link-calm transition-smooth text-sm text-white/76 hover:text-[var(--mist)]">
+                <Link href="/login" className="footer-link wave-link wave-link-calm transition-smooth text-sm text-white/76 hover:text-[var(--mist)]">
                   Vendor Access
                 </Link>
               </div>
