@@ -151,7 +151,7 @@ export default function Home() {
         </PageShell>
       </section>
 
-      <section className="public-section pb-16 md:pb-24">
+      <section className="public-section-lower pb-8 md:pb-12">
         <PageShell>
           <Card variant="section" className="overflow-hidden p-0">
             <div className="grid gap-0 lg:grid-cols-[0.95fr_1.05fr]">

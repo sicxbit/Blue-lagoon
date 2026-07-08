@@ -12,7 +12,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="pb-8 pt-16 md:pb-12 md:pt-24">
+    <footer className="public-section-lower pb-8 pt-6 md:pb-12 md:pt-8">
       <div className="site-container">
         <div className="glass-panel-dark overflow-hidden rounded-[36px] shadow-[0_24px_60px_rgba(6,59,76,0.24)]">
           <div className="grid gap-10 px-6 py-10 md:grid-cols-[1.3fr_0.8fr_0.9fr] md:px-10 md:py-12">

@@ -185,6 +185,11 @@ textarea {
   background: linear-gradient(180deg, var(--mist) 0%, #ffffff 100%);
 }
 
+.public-section-lower {
+  position: relative;
+  background: linear-gradient(180deg, var(--mist-soft) 0%, var(--mist) 100%);
+}
+
 .surface-card {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(245, 251, 252, 0.98) 100%);
   border: 1px solid rgba(6, 59, 76, 0.08);
